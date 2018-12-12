@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@mipmap/loginbackground"
+    tools:context=".Zhuce">
+<TableLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginTop="150dp"
+    >
+    <!--第一行-->
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户昵称："
+            android:layout_marginLeft="20dp"/>
+        <EditText
+            android:layout_width="200dp"
+            android:id="@+id/zhucenicheng"
+            android:layout_height="wrap_content"
+            android:hint="请输入你的昵称" />
+    </TableRow>
+    <!--第二行-->
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="164dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机号码："
+            android:layout_marginLeft="20dp"/>
+
+        <EditText
+            android:layout_width="200dp"
+            android:id="@+id/zhuceshouji"
+            android:layout_height="wrap_content"
+            android:hint="请输入你的手机号码" />
+    </TableRow>
+    <!--第三行-->
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="密码："/>
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:id="@+id/zhucemima"
+            android:hint="请输入注册密码"
+            />
+    </TableRow>
+    <!--第三行-->
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="确认密码："/>
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:id="@+id/querenzhucemima"
+            android:hint="请确认密码"
+            />
+    </TableRow>
+    <!--第四行-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/likezhuceButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:background="#c7c6c6"
+            android:text="立刻注册" />
+        <Button
+            android:layout_marginLeft="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fanhui"
+            android:background="#c7c6c6"
+            android:text="返回"/>
+
+
+    </LinearLayout>
+
+</TableLayout>
+</LinearLayout>

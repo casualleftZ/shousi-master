@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:padding="5dp">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/bluebiankuang"
+        android:orientation="vertical"
+        android:id="@+id/wode_login">
+
+        <ImageView
+            android:id="@+id/wode_picture"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:src="@mipmap/wode" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/wode_picture"
+            android:layout_gravity="center"
+            android:text="我的" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/baisebiankuang"
+        android:orientation="horizontal">
+    <LinearLayout
+        style="@style/user_style1"
+        android:id="@+id/daifukuang">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/daifukuang_picture"
+            android:layout_marginTop="0dp"
+            android:src="@mipmap/daifukuan"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/daifukuang_picture"
+            android:text="待付款"
+            android:textColor="#000000"/>
+
+    </LinearLayout>
+    <LinearLayout
+        style="@style/user_style1"
+        android:id="@+id/lishidingdan">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/lishidingdan_picture"
+            android:layout_marginTop="0dp"
+            android:src="@mipmap/lishidingdan"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lishidingdan_picture"
+            android:text="历史订单"
+            android:textColor="#000000"/>
+    </LinearLayout>
+    <LinearLayout
+        style="@style/user_style1"
+        android:id="@+id/pingjia">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/pingjia_picture"
+            android:layout_marginTop="0dp"
+            android:src="@mipmap/pingjia"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pingjia_picture"
+            android:text="评价"
+            android:textColor="#000000"/>
+    </LinearLayout>
+    </LinearLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/list_view"></ListView>
+</LinearLayout>
