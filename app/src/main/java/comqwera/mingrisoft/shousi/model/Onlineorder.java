@@ -6,20 +6,30 @@ public class Onlineorder {
     private String or_phone;  //定义用户电话
     private int d_id;     //定义座位id编号
     private int or_sum;  //定义用餐人数
+    private String or_time;
     private String or_memo; //定义用户备注
     public Onlineorder(){
         super();
     }
 //定义有参构造函数，用来初始化在线预订表实体类中的各个字段
-    public Onlineorder(int or_id,int u_id,String or_phone,int d_id,int or_sum,String or_memo){
+    public Onlineorder(int or_id,int u_id,String or_phone,int d_id,int or_sum,String or_time,String or_memo){
         this.or_id=or_id;      //为订单编号赋值
         this.u_id=u_id;        //为座位id编号赋值
         this.or_phone=or_phone; //定义用户电话
         this.d_id=d_id;        //为用餐人数赋值
         this.or_sum=or_sum;    //为用户id编号赋值
+        this.or_time=or_time;  //为用赋值户时间
         this.or_memo=or_memo;  //为用户备注赋值
     }
     //设置可读属性
+
+    public String getOr_time() {
+        return or_time;
+    }
+
+    public void setOr_time(String or_time) {
+        this.or_time = or_time;
+    }
 
     public String getOr_phone() {
         return or_phone;

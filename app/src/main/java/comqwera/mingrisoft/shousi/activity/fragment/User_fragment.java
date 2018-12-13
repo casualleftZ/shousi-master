@@ -33,7 +33,7 @@ public class User_fragment extends Basefragment{
         onStart();
         initUser ();//初始化信息数据
         UserAdapter adapter = new UserAdapter (getActivity (), R.layout.user_xinxi, userlist);
-        ListView listView = (ListView) view.findViewById (R.id.list_view);
+        ListView listView = view.findViewById (R.id.list_view);
         listView.setAdapter (adapter);
         return view;
     }

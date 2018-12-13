@@ -24,9 +24,13 @@ public class OnlineorderDAO {
     public void add(Onlineorder onlineorder){
         db=helper.getWritableDatabase ();//初始化SQLiteDatabase对象
         //执行添加用户信息操作
-        db.execSQL ("insert into myuser(or_id,u_id,or_phone,d_id,or_sum,or_memo) values(?,?,?,?,?,?)",new Object[]
+        db.execSQL ("insert into onlineorder(or_id,u_id,or_phone,d_id,or_sum,or_time,or_memo) values(?,?,?,?,?,?,?)",new Object[]
                 {
-                        onlineorder.getOr_id (),onlineorder.getU_id (),onlineorder.getOr_phone(),onlineorder.getU_id (),onlineorder.getD_id (),onlineorder.getOr_sum (),onlineorder.getOr_memo ()//在线预订
+                        onlineorder.getOr_id (),onlineorder.getU_id (),
+                        onlineorder.getOr_phone(),onlineorder.getU_id (),
+                        onlineorder.getD_id (),onlineorder.getOr_sum (),
+                        onlineorder.getOr_time(),
+                        onlineorder.getOr_memo ()//在线预订
                 });
     }
     /**
@@ -37,7 +41,7 @@ public class OnlineorderDAO {
     public void update(Onlineorder onlineorder){
         db=helper.getWritableDatabase ();//初始化SQLiteDatabase对象
         //执行修改收入信息操作
-        db.execSQL ("update myuser set or_id=?,u_id=?,or_phone=?,d_id=?,or_sum=?,or_memo=? where or_id=?",
+        db.execSQL ("update onlineorder set or_id=?,u_id=?,or_phone=?,d_id=?,or_sum=?,or_time=?,or_memo=? where or_id=?",
                 new Object[]
                         {
                                 onlineorder.getOr_id (),onlineorder.getU_id (),onlineorder.getOr_phone(),onlineorder.getD_id (),onlineorder.getOr_sum (),onlineorder.getOr_memo ()
@@ -52,7 +56,7 @@ public class OnlineorderDAO {
     public  Onlineorder find(int id)
     {
         db=helper.getWritableDatabase ();//初始化SQLiteDatabase对象
-        Cursor cursor=db.rawQuery ("select or_id,u_id,or_phone,d_id,or_sum,or_memo where re_id=? ",
+        Cursor cursor=db.rawQuery ("select * from onlineorder where re_id=? ",
                 new String[]
                         {String.valueOf (id)});
         if (cursor.moveToNext ())
@@ -63,6 +67,32 @@ public class OnlineorderDAO {
                     cursor.getString (cursor.getColumnIndex ("or_phone")),
                     cursor.getInt (cursor.getColumnIndex ("d_id")),
                     cursor.getInt (cursor.getColumnIndex ("or_sum")),
+                    cursor.getString (cursor.getColumnIndex ("or_time")),
+                    cursor.getString (cursor.getColumnIndex ("or_memo")));
+        }
+        return null;     //如果没有返回null
+    }
+    /**
+     * 查找用户信息
+     *
+     * @param id
+     * @return
+     */
+    public  Onlineorder find2(int id)
+    {
+        db=helper.getWritableDatabase ();//初始化SQLiteDatabase对象
+        Cursor cursor=db.rawQuery ("select * from onlineorder where u_id=? ",
+                new String[]
+                        {String.valueOf (id)});
+        if (cursor.moveToNext ())
+        {
+            //将遍历到的收入信息存储到 Myuser类中
+            return new Onlineorder (cursor.getInt (cursor.getColumnIndex ("or_id")),
+                    cursor.getInt (cursor.getColumnIndex ("u_id")),
+                    cursor.getString (cursor.getColumnIndex ("or_phone")),
+                    cursor.getInt (cursor.getColumnIndex ("d_id")),
+                    cursor.getInt (cursor.getColumnIndex ("or_sum")),
+                    cursor.getString (cursor.getColumnIndex ("or_time")),
                     cursor.getString (cursor.getColumnIndex ("or_memo")));
         }
         return null;     //如果没有返回null
@@ -97,7 +127,7 @@ public class OnlineorderDAO {
     {
         List<Onlineorder>onlineorder=new ArrayList<Onlineorder> ();//创建集合对象
         db=helper.getWritableDatabase ();          //初始化SQLiteDatabase
-        Cursor cursor=db.rawQuery ("select * from myuser limit ?,?",new String[]{String.valueOf (start),
+        Cursor cursor=db.rawQuery ("select * from onlineorder limit ?,?",new String[]{String.valueOf (start),
                 String.valueOf (count)});           //获取所有用户信息
         while (cursor.moveToNext ())               //遍历所有的遍历用户信息
         {
@@ -106,6 +136,7 @@ public class OnlineorderDAO {
                     cursor.getString (cursor.getColumnIndex ("or_phone")),
                     cursor.getInt (cursor.getColumnIndex ("d_id")),
                     cursor.getInt (cursor.getColumnIndex ("or_sum")),
+                    cursor.getString (cursor.getColumnIndex ("or_time")),
                     cursor.getString (cursor.getColumnIndex ("or_memo"))));
         }
         return  onlineorder;       //返回集合

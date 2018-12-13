@@ -25,7 +25,7 @@ public class Login extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.login);
-        spinner1=(Spinner)findViewById (R.id.spinner1) ;
+        spinner1= findViewById (R.id.spinner1);
         spinner1.setOnItemSelectedListener (new AdapterView.OnItemSelectedListener () {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -37,9 +37,9 @@ public class Login extends Activity {
             }
         });
 
-        zhucebutton = (Button) findViewById (R.id.zhucebutton);
-        tuichubutton = (Button) findViewById (R.id.tuichubutton);
-        loginbutton = (Button) findViewById (R.id.loginbutton);
+        zhucebutton = findViewById (R.id.zhucebutton);
+        tuichubutton = findViewById (R.id.tuichubutton);
+        loginbutton = findViewById (R.id.loginbutton);
 
         //退出组件
         tuichubutton.setOnClickListener (new View.OnClickListener () {
@@ -60,10 +60,10 @@ public class Login extends Activity {
         loginbutton.setOnClickListener (new View.OnClickListener () {
             @Override
             public void onClick(View v) {
-                Spinner spinner1=(Spinner)findViewById (R.id.spinner1);
+                Spinner spinner1= findViewById (R.id.spinner1);
 
-                Zhanghao = (EditText) findViewById (R.id.zhanghao);
-                Mima = (EditText) findViewById (R.id.mima);
+                Zhanghao = findViewById (R.id.zhanghao);
+                Mima = findViewById (R.id.mima);
                 zhanghao = Zhanghao.getText ().toString ();
                 pwd = Mima.getText ().toString ();
                 Intent intent = new Intent();

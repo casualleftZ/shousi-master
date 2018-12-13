@@ -38,8 +38,8 @@ public class MainActivity extends FragmentActivity{
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_home);
-        fragment = (FrameLayout) findViewById(R.id.fl_connect);
-        mrg = (RadioGroup) findViewById(R.id.rg1);
+        fragment = findViewById(R.id.fl_connect);
+        mrg = findViewById(R.id.rg1);
         initfragment();
         //设置RadioGroup的监听
 

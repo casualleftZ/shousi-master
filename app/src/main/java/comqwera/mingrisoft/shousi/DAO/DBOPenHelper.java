@@ -26,7 +26,7 @@ public class DBOPenHelper extends SQLiteOpenHelper {
         db.execSQL ("create table evaluate(e_id int primary key,o_id int,u_id int,f_id int,e_allrating,e_imgurl varchar(100),e_statue bit)");//评价表
         db.execSQL ("create table recommend(re_id int primary key,re_begintime date,re_endtime date,re_url varchar(100),re_img varchar(100)" +
                 ",re_contect varchar(100))");//推荐说明
-        db.execSQL ("create table onlineorder(or_id int primary key,u_id int,or_phone String,d_id int,or_sum int,or_memo varchar(30))");//在线预订表
+        db.execSQL ("create table onlineorder(or_id int primary key,u_id int,or_phone String,d_id int,or_sum int,or_time varchar(20),or_memo varchar(30))");//在线预订表
     }
 
     @Override
