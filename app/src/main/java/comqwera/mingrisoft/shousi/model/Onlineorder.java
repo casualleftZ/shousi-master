@@ -5,14 +5,14 @@ public class Onlineorder {
     private int u_id;     //定义用户id编号
     private String or_phone;  //定义用户电话
     private int d_id;     //定义座位id编号
-    private int or_sum;  //定义用餐人数
+    private String or_sum;  //定义用餐人数
     private String or_time;
     private String or_memo; //定义用户备注
     public Onlineorder(){
         super();
     }
 //定义有参构造函数，用来初始化在线预订表实体类中的各个字段
-    public Onlineorder(int or_id,int u_id,String or_phone,int d_id,int or_sum,String or_time,String or_memo){
+    public Onlineorder(int or_id,int u_id,String or_phone,int d_id,String or_sum,String or_time,String or_memo){
         this.or_id=or_id;      //为订单编号赋值
         this.u_id=u_id;        //为座位id编号赋值
         this.or_phone=or_phone; //定义用户电话
@@ -47,7 +47,7 @@ public class Onlineorder {
         return d_id;
     }
 
-    public int getOr_sum() {
+    public String getOr_sum() {
         return or_sum;
     }
 
@@ -72,7 +72,7 @@ public class Onlineorder {
         this.d_id = d_id;
     }
 
-    public void setOr_sum(int or_sum) {
+    public void setOr_sum(String or_sum) {
         this.or_sum = or_sum;
     }
 

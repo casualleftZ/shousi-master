@@ -62,6 +62,7 @@ public class Login extends Activity {
             public void onClick(View v) {
                 Spinner spinner1= findViewById (R.id.spinner1);
 
+
                 Zhanghao = findViewById (R.id.zhanghao);
                 Mima = findViewById (R.id.mima);
                 zhanghao = Zhanghao.getText ().toString ();

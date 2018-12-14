@@ -26,9 +26,11 @@ public class OnlineorderDAO {
         //执行添加用户信息操作
         db.execSQL ("insert into onlineorder(or_id,u_id,or_phone,d_id,or_sum,or_time,or_memo) values(?,?,?,?,?,?,?)",new Object[]
                 {
-                        onlineorder.getOr_id (),onlineorder.getU_id (),
-                        onlineorder.getOr_phone(),onlineorder.getU_id (),
-                        onlineorder.getD_id (),onlineorder.getOr_sum (),
+                        onlineorder.getOr_id (),
+                        onlineorder.getU_id (),
+                        onlineorder.getOr_phone(),
+                        onlineorder.getD_id (),
+                        onlineorder.getOr_sum (),
                         onlineorder.getOr_time(),
                         onlineorder.getOr_memo ()//在线预订
                 });
@@ -66,7 +68,7 @@ public class OnlineorderDAO {
                     cursor.getInt (cursor.getColumnIndex ("u_id")),
                     cursor.getString (cursor.getColumnIndex ("or_phone")),
                     cursor.getInt (cursor.getColumnIndex ("d_id")),
-                    cursor.getInt (cursor.getColumnIndex ("or_sum")),
+                    cursor.getString (cursor.getColumnIndex ("or_sum")),
                     cursor.getString (cursor.getColumnIndex ("or_time")),
                     cursor.getString (cursor.getColumnIndex ("or_memo")));
         }
@@ -91,7 +93,7 @@ public class OnlineorderDAO {
                     cursor.getInt (cursor.getColumnIndex ("u_id")),
                     cursor.getString (cursor.getColumnIndex ("or_phone")),
                     cursor.getInt (cursor.getColumnIndex ("d_id")),
-                    cursor.getInt (cursor.getColumnIndex ("or_sum")),
+                    cursor.getString (cursor.getColumnIndex ("or_sum")),
                     cursor.getString (cursor.getColumnIndex ("or_time")),
                     cursor.getString (cursor.getColumnIndex ("or_memo")));
         }
@@ -135,7 +137,7 @@ public class OnlineorderDAO {
                     cursor.getInt (cursor.getColumnIndex ("u_id")),
                     cursor.getString (cursor.getColumnIndex ("or_phone")),
                     cursor.getInt (cursor.getColumnIndex ("d_id")),
-                    cursor.getInt (cursor.getColumnIndex ("or_sum")),
+                    cursor.getString (cursor.getColumnIndex ("or_sum")),
                     cursor.getString (cursor.getColumnIndex ("or_time")),
                     cursor.getString (cursor.getColumnIndex ("or_memo"))));
         }

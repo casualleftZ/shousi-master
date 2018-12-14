@@ -36,12 +36,14 @@
                 android:layout_marginLeft="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:text="用餐人数："/>
         <EditText
                 android:layout_width="291dp"
                 android:layout_height="wrap_content"
                 android:hint="请输入用餐人数："
-                android:id="@+id/people"
+                android:id="@+id/people1"
+                android:inputType="phone"
         />
     </LinearLayout>
     <LinearLayout
@@ -49,15 +51,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
         <TextView
+                android:inputType="phone"
                 android:layout_marginLeft="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="预约电话："/>
         <EditText
-                android:inputType="number"
                 android:layout_width="291dp"
                 android:layout_height="wrap_content"
-                android:hint="请输入用餐人数："
+                android:hint="请输入预约电话："
                 android:id="@+id/phone"
         />
     </LinearLayout>
