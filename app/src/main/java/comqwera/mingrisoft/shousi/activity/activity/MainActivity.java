@@ -17,7 +17,8 @@ import java.lang.invoke.ConstantCallSite;
 import java.util.ArrayList;
 
 
-
+import android.widget.Toast;
+import comqwera.mingrisoft.shousi.DAO.Login1DAO;
 import comqwera.mingrisoft.shousi.activity.fragment.Basefragment;
 import comqwera.mingrisoft.shousi.activity.fragment.Home_fragment;
 import comqwera.mingrisoft.shousi.activity.fragment.Order_fragment;
@@ -43,7 +44,6 @@ public class MainActivity extends FragmentActivity{
         mrg = findViewById(R.id.rg1);
         initfragment();
         //设置RadioGroup的监听
-
         setListenner();
     }
 
@@ -51,12 +51,9 @@ public class MainActivity extends FragmentActivity{
     private void setListenner() {
 
         mrg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                Intent intent=getIntent();
-                zhanghao= (String) intent.getExtras().get("zhanghao");
-                Bundle bundle=new Bundle();
-                bundle.putString ("zhanghao", zhanghao);
                 switch (checkedId) {
                     case R.id.rbzhuye:
                         post = 0;
@@ -74,11 +71,18 @@ public class MainActivity extends FragmentActivity{
                         post = 0;
                         break;
                 }
-                //根据位置得到相应的Fragment
-                Basefragment basefragment = getfragment(post);
-                //替换
-                basefragment.setArguments(bundle);
-                switchfragment(tempfragment,basefragment);
+                Login1DAO login1DAO=new Login1DAO(MainActivity.this);
+                if(login1DAO.getMaxId()==0&&post!=0){
+                    Toast.makeText(MainActivity.this,"123",Toast.LENGTH_SHORT).show();
+                    Intent b=new Intent(MainActivity.this,Login.class);
+                    startActivity(b);
+                }
+                else {
+                    Basefragment basefragment = getfragment(post);
+                    //根据位置得到相应的Fragment
+                    //替换
+                    switchfragment(tempfragment, basefragment);
+                }
             }
         });
         mrg.check(R.id.rbzhuye);
@@ -99,14 +103,15 @@ public class MainActivity extends FragmentActivity{
         }
         return null;
     }
-   /**
-   *@param fromfragment
-   *@param nextfragment
-*/
- private void switchfragment(Fragment fromfragment, Basefragment nextfragment) {
+    /**
+     *@param fromfragment
+     *@param nextfragment
+     */
+    private void switchfragment(Fragment fromfragment, Basefragment nextfragment) {
         if (tempfragment != nextfragment) {
             tempfragment = nextfragment;
             //才切换
+
             if (nextfragment != null) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 //判断没有被添加
@@ -126,6 +131,5 @@ public class MainActivity extends FragmentActivity{
             }
         }
     }
-
 
 }

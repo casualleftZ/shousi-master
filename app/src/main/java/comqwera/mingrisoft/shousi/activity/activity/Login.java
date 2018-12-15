@@ -10,10 +10,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import comqwera.mingrisoft.shousi.DAO.Login1DAO;
 import comqwera.mingrisoft.shousi.DAO.MyuserDAO;
 import comqwera.mingrisoft.shousi.DAO.RestaurantDAO;
 
 import comqwera.mingrisoft.shousi.activity.fragment.User_fragment;
+import comqwera.mingrisoft.shousi.model.Login1;
 
 public class Login extends Activity {
 
@@ -67,6 +69,7 @@ public class Login extends Activity {
                 Mima = findViewById (R.id.mima);
                 zhanghao = Zhanghao.getText ().toString ();
                 pwd = Mima.getText ().toString ();
+                int id;
                 Intent intent = new Intent();
                 switch (spinner1.getSelectedItemPosition()) {
                     case 0:
@@ -78,10 +81,22 @@ public class Login extends Activity {
                             Toast.makeText (Login.this, "密码错误", Toast.LENGTH_SHORT).show ();
                             return;
                         } else {
+                            Login1DAO login1DAO=new Login1DAO(Login.this);
+                            id=myuserDAO.find(zhanghao).getU_id();
+                            if(login1DAO.getMaxId()==0){
+                                Login1 login1=new Login1(1,1,id,0);
+                                login1DAO.add(login1);
+                            }
+                            else {
+                                Login1 login1=new Login1();
+                                login1.setOr_id(0);
+                                login1.setU_id(id);
+                                login1.setZt_id(1);
+                                login1.setZt(1);
+                                login1DAO.update(login1);
+
+                            }
                             intent.setClass (Login.this, MainActivity.class);
-                            Bundle bundle = new Bundle ();
-                            bundle.putString ("zhanghao", zhanghao);
-                            intent.putExtras (bundle);
                             startActivity (intent);
                         }
                         break;
@@ -94,11 +109,8 @@ public class Login extends Activity {
                             Toast.makeText (Login.this, "密码错误", Toast.LENGTH_SHORT).show ();
                             return;
                         }
-                            else{Toast.makeText (Login.this, "登录成功", Toast.LENGTH_SHORT).show ();
+                        else{Toast.makeText (Login.this, "登录成功", Toast.LENGTH_SHORT).show ();
                             intent.setClass (Login.this, MainActivity.class);
-                            Bundle bundle = new Bundle ();
-                            bundle.putString ("zhanghao", zhanghao);
-                            intent.putExtras (bundle);
                             startActivity (intent);
                         }
                         break;

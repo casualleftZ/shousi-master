@@ -20,7 +20,7 @@ public class LauncherActivity extends Activity {
                 startMainActivity();
             }
             private void startMainActivity() {
-                Intent intent=new Intent (LauncherActivity.this,Login.class);
+                Intent intent=new Intent (LauncherActivity.this,MainActivity.class);
                 startActivity (intent);
                 finish ();
             }

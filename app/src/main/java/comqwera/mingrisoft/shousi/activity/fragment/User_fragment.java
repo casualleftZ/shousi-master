@@ -30,7 +30,7 @@ public class User_fragment extends Basefragment{
                 startActivity (intent);
             }
         }); */
-        onStart();
+
         initUser ();//初始化信息数据
         UserAdapter adapter = new UserAdapter (getActivity (), R.layout.user_xinxi, userlist);
         ListView listView = view.findViewById (R.id.list_view);
@@ -52,14 +52,6 @@ public class User_fragment extends Basefragment{
 
     }
     private String zhanghao;
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        if (isAdded()) {//判断Fragment已经依附Activity
-            zhanghao = getArguments().getString("zhanghao");
-        }
-    }
 }
 
 

@@ -29,7 +29,7 @@ public class Home_fragment extends Basefragment {
         View view = View.inflate(mcontext, R.layout.home_fragment, null);
 
 
-        onStart();
+
 
         return view;
     }
@@ -103,18 +103,6 @@ public class Home_fragment extends Basefragment {
     protected void initData() {
         super.initDate();
     }
-private String zhanghao;
 
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        if (isAdded()) {//判断Fragment已经依附Activity
-            zhanghao = getArguments().getString("zhanghao");
-        }
-
-
-
-    }
 }
 
