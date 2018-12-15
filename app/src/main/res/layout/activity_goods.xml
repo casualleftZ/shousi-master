@@ -1,10 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#fff"
+        android:orientation="vertical"
         tools:context=".GoodsActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageButton
+            android:id="@+id/ib_fanhui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/fanhui" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="商品详情"
+            android:textColor="#564c4c"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#eeee" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_good_info_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/tv_good_info_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="三纹鱼寿司"
+                    android:textColor="#323427" />
+
+                <TextView
+                    android:id="@+id/tv_good_info_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="精选美味食材，回味无穷"
+                    android:textColor="#767f86" />
+
+                <TextView
+                    android:id="@+id/tv_good_info_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="￥16.00"
+                    android:textColor="#ed3f3f"
+                    android:textSize="20sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:background="#eeee" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="由"
+                        android:textColor="#3c3d40" />
+
+                    <TextView
+                        android:id="@+id/tv_good_info_store"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="寿司家"
+                        android:textColor="#ff4040" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="配送"
+                        android:textColor="#3c3d40" />
+                </LinearLayout></LinearLayout>
+
+
+        </ScrollView></FrameLayout>
+    <LinearLayout
+        android:id="@+id/ll_goods_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#fff">
+
+        <TextView
+            android:id="@+id/tv_good_info_callcenter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="5dp"
+            android:drawableTop="@mipmap/kefu"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="联系商家 "
+            android:textColor="#393b3e" />
+
+        <TextView
+            android:id="@+id/tv_good_info_collection"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="5dp"
+            android:drawableTop="@mipmap/shoucang"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="收藏"
+            android:textColor="#393b3e" />
+
+
+        <Button
+            android:id="@+id/btn_good_info_addcart"
+            android:layout_width="120dp"
+            android:layout_height="51dp"
+            android:layout_gravity="center"
+            android:background="@drawable/add_cart_bg_selector"
+            android:gravity="center"
+            android:text="加入购物车"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+</LinearLayout>
