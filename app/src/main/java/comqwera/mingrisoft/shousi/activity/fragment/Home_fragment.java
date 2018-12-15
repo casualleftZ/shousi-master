@@ -11,6 +11,8 @@ import com.bumptech.glide.Glide;
 import com.youth.banner.Banner;
 import com.youth.banner.Transformer;
 import com.youth.banner.loader.ImageLoader;
+
+import comqwera.mingrisoft.shousi.activity.Adapter.RecyclerviewAdapter;
 import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.model.shousi;
 
