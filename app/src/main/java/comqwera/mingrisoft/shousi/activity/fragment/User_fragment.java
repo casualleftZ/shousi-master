@@ -153,10 +153,12 @@ public class User_fragment extends Basefragment{
                 if (xc == 0) {
                     bitmap = BitmapFactory.decodeStream(cr.openInputStream(uri));
                 } else {
-                    bitmap = data.getParcelableExtra("data");
-                }
-                if (uri == null) {
-                    uri = Uri.parse(MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), bitmap, null, null));
+                    Bundle bundle = data.getExtras();
+                     bitmap = (Bitmap) bundle.get("data");
+//                    bitmap = data.getParcelableExtra("data");
+//                }
+//                if (uri == null) {
+//                    uri = Uri.parse(MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), bitmap, null, null));
                 }
                 img_show.setImageBitmap(bitmap);
             } catch (Exception e) {
