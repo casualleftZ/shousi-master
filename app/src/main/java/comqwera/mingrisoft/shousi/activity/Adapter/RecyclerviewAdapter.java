@@ -1,4 +1,4 @@
-package comqwera.mingrisoft.shousi.activity.fragment;
+package comqwera.mingrisoft.shousi.activity.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
