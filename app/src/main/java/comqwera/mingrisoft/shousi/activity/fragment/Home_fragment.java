@@ -29,10 +29,6 @@ public class Home_fragment extends Basefragment {
     @Override
     public View initview() {
         View view = View.inflate(mcontext, R.layout.home_fragment, null);
-
-
-
-
         return view;
     }
     public void onActivityCreated(Bundle savedInstanceState) {

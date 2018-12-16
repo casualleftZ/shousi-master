@@ -1,4 +1,4 @@
-package comqwera.mingrisoft.shousi.user_fuzhu;
+package comqwera.mingrisoft.shousi.activity.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import comqwera.mingrisoft.shousi.activity.activity.R;
+import comqwera.mingrisoft.shousi.model.User;
 
 
 import java.util.List;

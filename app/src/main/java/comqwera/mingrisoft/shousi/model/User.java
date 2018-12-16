@@ -1,4 +1,4 @@
-package comqwera.mingrisoft.shousi.user_fuzhu;
+package comqwera.mingrisoft.shousi.model;
 
 public class User {
     private String xinxi;
