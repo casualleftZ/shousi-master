@@ -11,6 +11,7 @@ import comqwera.mingrisoft.shousi.DAO.Login1DAO;
 import comqwera.mingrisoft.shousi.DAO.MyuserDAO;
 import comqwera.mingrisoft.shousi.DAO.OnlineorderDAO;
 import comqwera.mingrisoft.shousi.activity.activity.*;
+import comqwera.mingrisoft.shousi.model.Login1;
 import comqwera.mingrisoft.shousi.model.Onlineorder;
 
 public class Order_fragment extends Basefragment {
@@ -51,21 +52,28 @@ public class Order_fragment extends Basefragment {
                     Onlineorder onlineorder = new Onlineorder(onlineorderDAO.getMaxId() + 1, UID,
                             PHONE, 0, renshu, null, null);
                     onlineorderDAO.add(onlineorder);
-                    Intent intent = new Intent(getActivity(), Orderfinish.class);
-                    Toast.makeText(getActivity(), "预约成功", Toast.LENGTH_SHORT).show();
-                    startActivity(intent);
+                    Login1DAO login1DAO=new Login1DAO(getActivity());
+                    Login1 login1=new Login1();
+                    login1.setOr_id(onlineorderDAO.getMaxId());
+                    login1.setZt_id(1);
+                    login1DAO.update(login1);
+
+                   Toast.makeText(getActivity(), "预约成功", Toast.LENGTH_SHORT).show();
+
                 }
-                else {Toast.makeText(getActivity(), "已经预约成功",
+                else {
+                    Toast.makeText(getActivity(), "已经预约成功",
                         Toast.LENGTH_SHORT).show();}
             }
         });
 
-//        yuyuexinxi.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//
-//            }
-//        });
+        yuyuexinxi.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent a=new Intent(getActivity(),Orderfinish.class);
+                startActivity(a);
+            }
+        });
         return view;
     }
 

@@ -73,4 +73,24 @@ public class Login1DAO {
         cursor.close();//关闭游标
         return null;           //如果没有返回值返回null
     }
+    /**
+     * 删除食物信息
+     *
+     * @param ids
+     */
+    public void detele(Integer... ids)
+    {                                                   //判断是否纯在要删除的id
+        if(ids.length>0)
+        {
+            StringBuffer sb=new StringBuffer ();        //创建StringBuffer对象
+            for(int i=0;i<ids.length;i++)              //遍历要删除的id集合
+            {
+                sb.append ('?').append (',');           //将删除条件添加到StringBuffer对象中
+            }
+            sb.deleteCharAt (sb.length ()-1);            //去掉最后一个","字符
+            db=helper.getWritableDatabase ();           //初始化SQLiteDatabase对象
+            //执行删除用户信息操作
+            db.execSQL ("delete from login1 where zt_id in ("+sb+")", ids);
+        }
+    }
 }

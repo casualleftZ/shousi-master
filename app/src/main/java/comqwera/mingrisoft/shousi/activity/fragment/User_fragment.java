@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import comqwera.mingrisoft.shousi.DAO.Login1DAO;
 import comqwera.mingrisoft.shousi.activity.activity.Login;
 import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.user_fuzhu.User;
@@ -17,19 +18,22 @@ import java.util.List;
 
 public class User_fragment extends Basefragment{
     private List<User>userlist=new ArrayList<User> ();
-    private  LinearLayout wode_login;
-    private Button button;
+    private Button tuichudenglu;
 
     public View initview() {
         View view = View.inflate (mcontext, R.layout.user_activity, null);
-/**       wode_login = (LinearLayout) view.findViewById (R.id.wode_login);
-        wode_login.setOnClickListener (new View.OnClickListener () {
+
+        tuichudenglu = (Button) view.findViewById (R.id.tuichudenglu);
+        tuichudenglu.setOnClickListener (new View.OnClickListener () {
             @Override
             public void onClick(View v) {
+                Login1DAO login1DAO=new Login1DAO(getActivity());
+                login1DAO.detele(1);
                 Intent intent = new Intent (getActivity (), Login.class);
                 startActivity (intent);
+                getActivity().finish();
             }
-        }); */
+        });
 
         initUser ();//初始化信息数据
         UserAdapter adapter = new UserAdapter (getActivity (), R.layout.user_xinxi, userlist);
@@ -51,7 +55,6 @@ public class User_fragment extends Basefragment{
         super.initDate();
 
     }
-    private String zhanghao;
 }
 
 

@@ -98,6 +98,7 @@ public class Login extends Activity {
                             }
                             intent.setClass (Login.this, MainActivity.class);
                             startActivity (intent);
+                            Login.this.finish();
                         }
                         break;
                     case 1:
