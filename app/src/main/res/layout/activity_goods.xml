@@ -72,6 +72,10 @@
                     android:padding="10dp"
                     android:text="精选美味食材，回味无穷"
                     android:textColor="#767f86" />
+                <comqwera.mingrisoft.shousi.activity.View.NumberAddSubView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                </comqwera.mingrisoft.shousi.activity.View.NumberAddSubView>
 
                 <TextView
                     android:id="@+id/tv_good_info_price"

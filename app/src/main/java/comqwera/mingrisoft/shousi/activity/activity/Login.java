@@ -21,7 +21,7 @@ public class Login extends Activity {
 
     private EditText Zhanghao, Mima;
     private String pwd, zhanghao;
-    private Button loginbutton, tuichubutton, zhucebutton;
+    private Button loginbutton,  zhucebutton;
     private Spinner spinner1;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,16 +40,10 @@ public class Login extends Activity {
         });
 
         zhucebutton = findViewById (R.id.zhucebutton);
-        tuichubutton = findViewById (R.id.tuichubutton);
         loginbutton = findViewById (R.id.loginbutton);
 
-        //退出组件
-        tuichubutton.setOnClickListener (new View.OnClickListener () {
-            @Override
-            public void onClick(View v) {
-                Login.this.finish ();
-            }
-        });
+
+
         //注册组件
         zhucebutton.setOnClickListener (new View.OnClickListener () {
             @Override

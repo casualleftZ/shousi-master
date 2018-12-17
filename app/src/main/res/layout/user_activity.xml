@@ -4,29 +4,33 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:background="#ffffff"
     tools:context=".MainActivity"
-    android:padding="5dp">
+>
 
     <LinearLayout
+            android:layout_marginTop="10dp"
         android:layout_width="fill_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/bluebiankuang"
         android:orientation="vertical"
         android:id="@+id/wode_login">
 
-        <ImageView
+        <comqwera.mingrisoft.shousi.activity.View.RoundImageView
             android:id="@+id/wode_picture"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
-            android:src="@mipmap/wode" />
+            android:src="@mipmap/wode" >
+        </comqwera.mingrisoft.shousi.activity.View.RoundImageView>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/wode_picture"
             android:layout_gravity="center"
+            android:layout_marginTop="5dp"
             android:text="我的" />
     </LinearLayout>
     <LinearLayout

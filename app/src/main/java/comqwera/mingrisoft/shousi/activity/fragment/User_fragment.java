@@ -155,10 +155,7 @@ public class User_fragment extends Basefragment{
                 } else {
                     Bundle bundle = data.getExtras();
                      bitmap = (Bitmap) bundle.get("data");
-//                    bitmap = data.getParcelableExtra("data");
-//                }
-//                if (uri == null) {
-//                    uri = Uri.parse(MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), bitmap, null, null));
+
                 }
                 img_show.setImageBitmap(bitmap);
             } catch (Exception e) {
