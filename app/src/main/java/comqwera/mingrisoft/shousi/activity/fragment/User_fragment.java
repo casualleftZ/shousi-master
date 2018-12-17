@@ -59,6 +59,7 @@ public class User_fragment extends Basefragment{
             public void onClick(View v){
                 Intent wodexinxi=new Intent(getActivity(),updatewode.class);
                 startActivity(wodexinxi);
+                getActivity().finish();
             }
         });//修改信息按钮
         img_show=(ImageView)view.findViewById(R.id.wode_picture);
@@ -85,10 +86,12 @@ public class User_fragment extends Basefragment{
     private String address1;
     private String phone1;
     private String _id;
-    private void initUser(){
+    private String zhiwen1;
+    private void initUser(){//信息显示
 
         Login1DAO login1DAO=new Login1DAO(getActivity());
         u_id=login1DAO.find(1).getU_id();
+        zhiwen1=Integer.toString(login1DAO.find(1).getZhiwen());
         _id= Integer.toString (u_id);
         MyuserDAO myuserDAO=new MyuserDAO(getActivity());
         username=myuserDAO.find2(u_id).getU_nickname();
@@ -98,7 +101,9 @@ public class User_fragment extends Basefragment{
         userlist.add (id);
         User nicheng=new User ("昵称:" ,username);
         userlist.add (nicheng);
-        User phone=new User ("电话号码:",phone1);
+        User zhiwen=new User ("电话号码:",phone1);
+        userlist.add (zhiwen);
+        User phone=new User ("指纹识别:",zhiwen1);
         userlist.add (phone);
         User address=new User ("地址:",address1);
         userlist.add (address);

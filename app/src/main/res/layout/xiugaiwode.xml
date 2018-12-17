@@ -78,6 +78,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+        <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="指纹识别："/>
+        <EditText
+                android:layout_width="291dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/userzhiwen"
+                android:inputType="number"
+        />
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
         <Button android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/fanhuiuser"

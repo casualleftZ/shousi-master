@@ -21,11 +21,12 @@ public class Login1DAO {
     public void add(Login1 login1) {
         db = helper.getWritableDatabase();         //初始化SQLiteDatabase
         //执行添加食物信息操作
-        db.execSQL("insert into login1 (zt_id,zt,u_id,or_id) values (?,?,?,?)",
+        db.execSQL("insert into login1 (zt_id,zt,u_id,or_id,zhiwen) values (?,?,?,?,?)",
                 new Object[]
                         {
                          login1.getZt_id(),login1.getZt(),
-                          login1.getU_id(),login1.getOr_id()
+                          login1.getU_id(),login1.getOr_id(),
+                                login1.getZhiwen()
                         });
     }
     /**
@@ -37,11 +38,12 @@ public class Login1DAO {
     {
         db=helper.getWritableDatabase ();            //初始化SQLiteDatabase对象
         //执行修改食物信息操作
-        db.execSQL ("update login1 set zt=?,u_id=?,or_id=? where zt_id=?",
+        db.execSQL ("update login1 set zt=?,u_id=?,or_id=?,zhiwen=? where zt_id=?",
                 new Object[]
                         {
                                 login1.getZt(),login1.getU_id(),
-                                login1.getOr_id(),login1.getZt_id()
+                                login1.getOr_id(),
+                                login1.getZhiwen(),login1.getZt_id()
                         });
     }
 
@@ -61,14 +63,15 @@ public class Login1DAO {
     }
     public Login1 find(int id) {
         db = helper.getWritableDatabase ();//初始化SQLiteDatabase对象
-        Cursor cursor = db.rawQuery("select zt_id,zt,u_id,or_id from login1 where zt_id=?",
+        Cursor cursor = db.rawQuery("select zt_id,zt,u_id,or_id,zhiwen from login1 where zt_id=?",
                 new String[]{String.valueOf (id)});
         if (cursor.moveToNext ()) {
             //将遍历到的收入信息存储到Tb_inaccount类中
             return new Login1 (cursor.getInt (cursor.getColumnIndex ("zt_id")),
                     cursor.getInt(cursor.getColumnIndex ("zt")),
                     cursor.getInt (cursor.getColumnIndex ("u_id")),
-                    cursor.getInt (cursor.getColumnIndex ("or_id")));
+                    cursor.getInt (cursor.getColumnIndex ("or_id")),
+                    cursor.getInt(cursor.getColumnIndex("zhiwen")));
         }
         cursor.close();//关闭游标
         return null;           //如果没有返回值返回null
