@@ -1,20 +1,16 @@
 package comqwera.mingrisoft.shousi.activity.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.*;
 
-import comqwera.mingrisoft.shousi.activity.Adapter.Leftadapter;
-import comqwera.mingrisoft.shousi.activity.Adapter.Rightadapter;
-import comqwera.mingrisoft.shousi.activity.View.PinnedHeaderListView;
 import comqwera.mingrisoft.shousi.activity.activity.R;
+import comqwera.mingrisoft.shousi.activity.activity.ShoppingCartActivity;
 
-public class Type_fragment extends Basefragment {
-
+public class Type_fragment extends Basefragment  {
+/*
     private ListView listleft;
     private PinnedHeaderListView pinnedListView;
     private boolean isScroll = true;
@@ -136,6 +132,107 @@ public class Type_fragment extends Basefragment {
         super.onDestroy();
         //ButterKnife.unbind(this);
     }
+*/
+    private TextView hot;
+    private TextView discount;
+    private TextView new_foods;
+    private TextView delicious;
+    private TextView snack;
+    private TextView drink;
+
+
+    @Override
+    public View initview() {
+        View view=View.inflate(mcontext, R.layout.type_fragment,null);
+
+
+        return view;
     }
+    public void initDate(){
+        super.initDate();
+
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        hot=(TextView)getActivity().findViewById(R.id.hot);
+        discount=(TextView)getActivity().findViewById(R.id.discount);
+        new_foods=(TextView)getActivity().findViewById(R.id.new_foods);
+        delicious=(TextView)getActivity().findViewById(R.id.delicious);
+        snack=(TextView)getActivity().findViewById(R.id.snack);
+        drink=(TextView)getActivity().findViewById(R.id.drink);
+        hot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1=new Intent(getActivity(), ShoppingCartActivity.class);
+                startActivity(intent1);
+            }
+        });
+        discount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1=new Intent(getActivity(), ShoppingCartActivity.class);
+                startActivity(intent1);
+            }
+        });
+        new_foods.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1=new Intent(getActivity(), ShoppingCartActivity.class);
+                startActivity(intent1);
+            }
+        });
+        delicious.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1=new Intent(getActivity(), ShoppingCartActivity.class);
+                startActivity(intent1);
+            }
+        });
+        snack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1=new Intent(getActivity(), ShoppingCartActivity.class);
+                startActivity(intent1);
+            }
+        });
+        drink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1=new Intent(getActivity(), ShoppingCartActivity.class);
+                startActivity(intent1);
+            }
+        });
+
+    }
+    /*
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.hot:
+                Intent intent1=new Intent(getActivity(), ShoppingCartActivity.class);
+                startActivity(intent1);
+            case R.id.discount:
+                Intent intent2=new Intent(getActivity(), ShoppingCartActivity.class);
+                startActivity(intent2);
+            case R.id.new_foods:
+                Intent intent3=new Intent(getActivity(), ShoppingCartActivity.class);
+                startActivity(intent3);
+            case R.id.delicious:
+                Intent intent4=new Intent(getActivity(), ShoppingCartActivity.class);
+                startActivity(intent4);
+            case R.id.snack:
+                Intent intent5=new Intent(getActivity(), ShoppingCartActivity.class);
+                startActivity(intent5);
+            case R.id.drink:
+                Intent intent6=new Intent(getActivity(), ShoppingCartActivity.class);
+                startActivity(intent6);
+        }
+
+    }*/
+
+
+
+}
 
 
