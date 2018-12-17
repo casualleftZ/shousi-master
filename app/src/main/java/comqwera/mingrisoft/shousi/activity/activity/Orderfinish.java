@@ -34,15 +34,21 @@ public class Orderfinish extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.orderfinish);
-        final OnlineorderDAO onlineorderDAO = new OnlineorderDAO(Orderfinish.this);
+        OnlineorderDAO onlineorderDAO = new OnlineorderDAO(Orderfinish.this);
         final Login1DAO login1DAO = new Login1DAO(Orderfinish.this);
         u_id = login1DAO.find(1).getU_id();   //获取账号id
-
-        Phone = onlineorderDAO.find2(u_id).getOr_phone();
-        Beizhu = onlineorderDAO.find2(u_id).getOr_memo();
-        Time = onlineorderDAO.find2(u_id).getOr_time();
-        People = onlineorderDAO.find2(u_id).getOr_sum();
-
+       if(onlineorderDAO.getMaxId()!=0) {
+           Phone = onlineorderDAO.find2(u_id).getOr_phone();
+           Beizhu = onlineorderDAO.find2(u_id).getOr_memo();
+           Time = onlineorderDAO.find2(u_id).getOr_time();
+           People = onlineorderDAO.find2(u_id).getOr_sum();
+       }
+       else{
+           People=null;
+           Beizhu=null;
+           Time=null;
+           People=null;
+       }
         timetext = (TextView) findViewById(R.id.timeText);
         peopletext = (TextView) findViewById(R.id.peopletext);
         phonetext = (TextView) findViewById(R.id.phonetext);
@@ -70,6 +76,7 @@ public class Orderfinish extends Activity {
             public void onClick(View v) {
                 Login1DAO login1DAO1=new Login1DAO(Orderfinish.this);
                 if(login1DAO.find(1).getOr_id()==1){
+                OnlineorderDAO onlineorderDAO = new OnlineorderDAO(Orderfinish.this);
                 onlineorderDAO.detele(1);
                 Login1 login1=new Login1();
                 login1.setZt_id(1);
