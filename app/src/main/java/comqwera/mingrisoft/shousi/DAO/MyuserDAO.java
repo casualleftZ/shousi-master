@@ -49,7 +49,7 @@ public void update(Myuser myuser){
     {
         myuser.getU_id(),myuser.getU_loinid(),myuser.getU_nickname(), myuser.getU_password (),
                 myuser.getU_phone (),myuser.getU_sex (),myuser.getU_headportrait (),
-            myuser.getU_adress (), myuser.getU_vip ()
+             myuser.getU_vip (),myuser.getU_adress (),myuser.getU_phone2()
     });
 }
 /**

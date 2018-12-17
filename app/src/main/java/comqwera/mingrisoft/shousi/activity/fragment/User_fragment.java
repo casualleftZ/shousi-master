@@ -25,6 +25,7 @@ import comqwera.mingrisoft.shousi.DAO.MyuserDAO;
 import comqwera.mingrisoft.shousi.activity.Adapter.UserAdapter;
 import comqwera.mingrisoft.shousi.activity.activity.Login;
 import comqwera.mingrisoft.shousi.activity.activity.R;
+import comqwera.mingrisoft.shousi.activity.activity.updatewode;
 import comqwera.mingrisoft.shousi.model.User;
 
 
@@ -36,7 +37,7 @@ public class User_fragment extends Basefragment{
     private List<User>userlist=new ArrayList<User> ();
     private Button tuichudenglu;
     private ImageView img_show;
-
+    private Button xiugaixinxi;
     private int u_id;
     public View initview() {
         View view = View.inflate (mcontext, R.layout.user_activity, null);
@@ -51,8 +52,15 @@ public class User_fragment extends Basefragment{
                 startActivity (intent);
                 getActivity().finish();
             }
-        });
-
+        });//退出按钮
+        xiugaixinxi=(Button)view.findViewById(R.id.xiugaixinxi);
+        xiugaixinxi.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent wodexinxi=new Intent(getActivity(),updatewode.class);
+                startActivity(wodexinxi);
+            }
+        });//修改信息按钮
         img_show=(ImageView)view.findViewById(R.id.wode_picture);
 
         img_show.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +102,9 @@ public class User_fragment extends Basefragment{
         userlist.add (phone);
         User address=new User ("地址:",address1);
         userlist.add (address);
+     //显示我的信息
     }
+
     public void initDate(){
         super.initDate();
 

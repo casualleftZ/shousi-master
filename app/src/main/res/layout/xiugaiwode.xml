@@ -1,0 +1,91 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:background="@drawable/baisebiankuang"
+              android:layout_marginTop="0dp"
+              android:orientation="vertical"
+>
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户昵称："/>
+        <EditText
+                android:layout_width="291dp"
+                android:layout_height="wrap_content"
+
+                android:id="@+id/usernickname"
+
+        />
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="预留电话号码："/>
+        <EditText
+                android:layout_width="291dp"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:id="@+id/userphone"
+
+        />
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="密码："/>
+        <EditText
+                android:layout_width="291dp"
+                android:layout_height="wrap_content"
+
+                android:id="@+id/usermima"
+        />
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户地址："/>
+        <EditText
+                android:layout_width="291dp"
+                android:layout_height="wrap_content"
+
+                android:id="@+id/useraddress"
+        />
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fanhuiuser"
+                android:layout_gravity="center"
+                android:text="返回"/>
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="修改信息"
+                android:id="@+id/xiugaiuser"/>
+    </LinearLayout>
+</LinearLayout>

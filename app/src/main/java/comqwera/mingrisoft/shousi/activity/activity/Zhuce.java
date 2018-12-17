@@ -78,7 +78,7 @@ public class Zhuce extends Activity {
                     return;
                 }
                 else {
-                    Myuser myuser=new Myuser (myuserDAO.getMaxId ()+1,u_loginid+1,username,
+                    Myuser myuser=new Myuser (myuserDAO.getMaxId ()+1,myuserDAO.getMaxId ()+1,username,
                             pwd,phonenumber,null,null,null,null,null);
                     myuserDAO.add (myuser);
                     Toast.makeText (Zhuce.this,"注册成功",Toast.LENGTH_SHORT).show ();

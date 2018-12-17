@@ -99,13 +99,19 @@
 
     >
         <Button
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tuichudenglu"
-                android:text="退出登录"
+                android:id="@+id/xiugaixinxi"
+                android:text="修改信息"
                 android:layout_gravity="center"
-
-
         />
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tuichudenglu"
+            android:text="退出登录"
+            android:layout_gravity="center"
+            android:layout_below="@id/xiugaixinxi"
+    />
     </RelativeLayout>
 </LinearLayout>
