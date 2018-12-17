@@ -27,10 +27,11 @@ public void add(Myuser myuser){
     db=helper.getWritableDatabase ();//初始化SQLiteDatabase对象
     //执行添加用户信息操作
     db.execSQL ("insert into myuser(u_id,u_loginid,u_nickname,u_password,u_phone," +
-            "u_sex,u_headportrait,u_vip,u_address) values(?,?,?,?,?,?,?,?,?)",new Object[]
+            "u_sex,u_headportrait,u_vip,u_address,u_phone2) values(?,?,?,?,?,?,?,?,?,?)",new Object[]
             {myuser.getU_id(),myuser.getU_loinid(),myuser.getU_nickname(), myuser.getU_password (),
-                    myuser.getU_phone (),myuser.getU_adress (),myuser.getU_headportrait (),myuser.getU_sex (),
-                    myuser.getU_vip ()//执行添加用户信息操作
+                    myuser.getU_phone (),myuser.getU_sex (),myuser.getU_headportrait (),
+                    myuser.getU_vip (),myuser.getU_adress (),myuser.getU_phone2()
+                    //执行添加用户信息操作
 
     });
 }
@@ -43,12 +44,12 @@ public void update(Myuser myuser){
     db=helper.getWritableDatabase ();//初始化SQLiteDatabase对象
     //执行修改收入信息操作
     db.execSQL ("update myuser set u_id=?,u_loginid=?,u_nickname=?,u_password=?,u_phone=?," +
-            "u_sex=?,u_headportrait=?,u_vip=?,u_address=?",
+            "u_sex=?,u_headportrait=?,u_vip=?,u_address=?,u_phone2=?",
     new Object[]
     {
         myuser.getU_id(),myuser.getU_loinid(),myuser.getU_nickname(), myuser.getU_password (),
-                myuser.getU_phone (),myuser.getU_adress (),myuser.getU_headportrait (),myuser.getU_sex (),
-                myuser.getU_vip ()
+                myuser.getU_phone (),myuser.getU_sex (),myuser.getU_headportrait (),
+            myuser.getU_adress (), myuser.getU_vip ()
     });
 }
 /**
@@ -58,28 +59,54 @@ public void update(Myuser myuser){
  * @return
  */
 public Myuser find(String phone)
-{
-    db=helper.getWritableDatabase ();//初始化SQLiteDatabase对象
-    Cursor cursor=db.rawQuery ("select u_id,u_loginid,u_nickname,u_password,u_phone,"+
-            " u_sex,u_headportrait,u_vip,u_address from Myuser where u_phone=?",
-            new String[]
-                    {String.valueOf (phone)});
-
-    if (cursor.moveToNext ())
     {
-        //将遍历到的收入信息存储到 Myuser类中
-        return new Myuser (cursor.getInt (cursor.getColumnIndex ("u_id")),
-                cursor.getInt (cursor.getColumnIndex ("u_loginid")),
-                cursor.getString (cursor.getColumnIndex ("u_nickname")),
-                cursor.getString (cursor.getColumnIndex ("u_password")),
-                cursor.getString (cursor.getColumnIndex ("u_phone")),
-                cursor.getString (cursor.getColumnIndex ("u_sex")),
-                cursor.getString (cursor.getColumnIndex ("u_vip")),
-                cursor.getString (cursor.getColumnIndex ("u_headportrait")),
-                cursor.getString (cursor.getColumnIndex ("u_address")));
+        db=helper.getWritableDatabase ();//初始化SQLiteDatabase对象
+        Cursor cursor=db.rawQuery ("select u_id,u_loginid,u_nickname,u_password,u_phone,"+
+                        " u_sex,u_vip,u_headportrait,u_address,u_phone2 from Myuser where u_phone=?",
+                new String[]
+                        {String.valueOf (phone)});
+
+        if (cursor.moveToNext ())
+        {
+            //将遍历到的收入信息存储到 Myuser类中
+            return new Myuser (cursor.getInt (cursor.getColumnIndex ("u_id")),
+                    cursor.getInt (cursor.getColumnIndex ("u_loginid")),
+                    cursor.getString (cursor.getColumnIndex ("u_nickname")),
+                    cursor.getString (cursor.getColumnIndex ("u_password")),
+                    cursor.getString (cursor.getColumnIndex ("u_phone")),
+                    cursor.getString (cursor.getColumnIndex ("u_sex")),
+                    cursor.getString (cursor.getColumnIndex ("u_vip")),
+                    cursor.getString (cursor.getColumnIndex ("u_headportrait")),
+                    cursor.getString (cursor.getColumnIndex ("u_address")),
+                    cursor.getString(cursor.getColumnIndex("u_phone2")));
+        }
+        return null;     //如果没有返回null
     }
-           return null;     //如果没有返回null
-}
+
+    public Myuser find2(int u_id)
+    {
+        db=helper.getWritableDatabase ();//初始化SQLiteDatabase对象
+        Cursor cursor=db.rawQuery ("select u_id,u_loginid,u_nickname,u_password,u_phone,"+
+                        " u_sex,u_headportrait,u_vip,u_address,u_phone2 from Myuser where u_id=?",
+                new String[]
+                        {String.valueOf (u_id)});
+
+        if (cursor.moveToNext ())
+        {
+            //将遍历到的收入信息存储到 Myuser类中
+            return new Myuser (cursor.getInt (cursor.getColumnIndex ("u_id")),
+                    cursor.getInt (cursor.getColumnIndex ("u_loginid")),
+                    cursor.getString (cursor.getColumnIndex ("u_nickname")),
+                    cursor.getString (cursor.getColumnIndex ("u_password")),
+                    cursor.getString (cursor.getColumnIndex ("u_phone")),
+                    cursor.getString (cursor.getColumnIndex ("u_sex")),
+                    cursor.getString (cursor.getColumnIndex ("u_vip")),
+                    cursor.getString (cursor.getColumnIndex ("u_headportrait")),
+                    cursor.getString (cursor.getColumnIndex ("u_address")),
+                    cursor.getString(cursor.getColumnIndex("u_phone2")));
+        }
+        return null;     //如果没有返回null
+    }
 /**
  * 删除用户信息
  *
@@ -122,7 +149,8 @@ public List<Myuser>getScrollData(int start,int count)
                  cursor.getString (cursor.getColumnIndex ("u_sex")),
                  cursor.getString (cursor.getColumnIndex ("u_vip")),
                  cursor.getString (cursor.getColumnIndex ("u_headportrait")),
-                 cursor.getString (cursor.getColumnIndex ("u_address"))));
+                 cursor.getString (cursor.getColumnIndex ("u_address")),
+                 cursor.getString(cursor.getColumnIndex("u_phone2"))));
      }
      return  myuser;       //返回集合
 }

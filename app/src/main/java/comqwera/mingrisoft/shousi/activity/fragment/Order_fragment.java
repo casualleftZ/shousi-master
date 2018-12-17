@@ -35,27 +35,29 @@ public class Order_fragment extends Basefragment {
         Login1DAO login1DAO = new Login1DAO(getActivity());
         yuyuebutton = (Button) view.findViewById(R.id.yuyuebutton);
         yuyuexinxi = (Button) view.findViewById(R.id.yuyuexinxi);
-        time = view.findViewById(R.id.time);
-        people = view.findViewById(R.id.people1);
-        phone = view.findViewById(R.id.phone);
-        beizhu = view.findViewById(R.id.or_memo);
-        TIME = time.getText().toString();
-        renshu=people.getText().toString();
+        time = (EditText)view.findViewById(R.id.time);
+        people =(EditText) view.findViewById(R.id.people1);
+        phone = (EditText)view.findViewById(R.id.phone);
+        beizhu = (EditText)view.findViewById(R.id.or_memo);
         UID = login1DAO.find(1).getU_id();
-        SHUOMING = beizhu.getText().toString();
-        PHONE = phone.getText().toString();
         yuyuebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                TIME = time.getText().toString();
+                renshu=people.getText().toString();
+                SHUOMING = beizhu.getText().toString();
+                PHONE = phone.getText().toString();
                 OnlineorderDAO onlineorderDAO = new OnlineorderDAO(getActivity());
-                if(onlineorderDAO.find2(UID)!=null) {
+                Login1DAO login1DAO=new Login1DAO(getActivity());
+                if(login1DAO.find(1).getOr_id()==0) {
                     Onlineorder onlineorder = new Onlineorder(onlineorderDAO.getMaxId() + 1, UID,
-                            PHONE, 0, renshu, null, null);
+                            PHONE, 0, renshu, TIME, SHUOMING);
                     onlineorderDAO.add(onlineorder);
-                    Login1DAO login1DAO=new Login1DAO(getActivity());
                     Login1 login1=new Login1();
-                    login1.setOr_id(onlineorderDAO.getMaxId());
                     login1.setZt_id(1);
+                    login1.setU_id(login1DAO.find(1).getU_id());
+                    login1.setZt(login1DAO.find(1).getZt());
+                    login1.setOr_id(1);         //预约状态
                     login1DAO.update(login1);
 
                    Toast.makeText(getActivity(), "预约成功", Toast.LENGTH_SHORT).show();

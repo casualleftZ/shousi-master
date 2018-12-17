@@ -32,7 +32,7 @@ public class OnlineorderDAO {
                         onlineorder.getD_id (),
                         onlineorder.getOr_sum (),
                         onlineorder.getOr_time(),
-                        onlineorder.getOr_memo ()//在线预订
+                        onlineorder.getOr_memo ()
                 });
     }
     /**

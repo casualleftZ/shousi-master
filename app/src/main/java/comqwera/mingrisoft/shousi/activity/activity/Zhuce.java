@@ -79,7 +79,7 @@ public class Zhuce extends Activity {
                 }
                 else {
                     Myuser myuser=new Myuser (myuserDAO.getMaxId ()+1,u_loginid+1,username,
-                            pwd,phonenumber,null,null,null,null);
+                            pwd,phonenumber,null,null,null,null,null);
                     myuserDAO.add (myuser);
                     Toast.makeText (Zhuce.this,"注册成功",Toast.LENGTH_SHORT).show ();
                     Intent i = new Intent (Zhuce.this,Login.class);

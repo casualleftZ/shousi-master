@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:hint="请输入预约时间"
                 android:id="@+id/time"
+                android:inputType="datetime"
         />
     </LinearLayout>
     <LinearLayout

@@ -83,10 +83,11 @@ public class Login extends Activity {
                             }
                             else {
                                 Login1 login1=new Login1();
-                                login1.setOr_id(0);
+
                                 login1.setU_id(id);
                                 login1.setZt_id(1);
                                 login1.setZt(1);
+                                login1.setOr_id(0);
                                 login1DAO.update(login1);
 
                             }

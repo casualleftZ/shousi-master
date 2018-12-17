@@ -10,13 +10,11 @@ public class Myuser {                 //用户信息实体类
     private String u_headportrait;//头像
     private String u_vip;        //是否是vip
     private String u_adress;     //用户地址
-    public Myuser(int r_id, String r_name, String r_opentime, String r_address, String r_phone, String r_discription){
-    super();
-    }
+    private String u_phone2;
 
 //定义有参构造函数，用来初始化用户信息实体类中的各个字段
     public Myuser(int u_id, int u_loinid,String u_nickname,String u_password, String u_phone, String u_sex, String u_headportrait,
-                   String u_vip,String u_adress)
+                   String u_vip,String u_adress,String u_phone2)
     {
         super();
         this.u_id=u_id;                 //为用户编号赋值
@@ -28,6 +26,8 @@ public class Myuser {                 //用户信息实体类
         this.u_headportrait=u_headportrait;//为用户头像赋值
         this.u_vip=u_vip;                //为用户vip赋值
         this.u_adress=u_adress;         //为用户地址赋值
+        this.u_phone2=u_phone2;          //为用户预留电话号码赋值
+
     }
     //设置可读属性
     public int getU_id() {
@@ -64,6 +64,11 @@ public class Myuser {                 //用户信息实体类
     public String getU_adress() {
         return u_adress;
     }
+
+    public String getU_phone2() {
+        return u_phone2;
+    }
+
     //获取函数可写属性
     public void setU_id(int u_id) {
         this.u_id = u_id;
@@ -99,5 +104,9 @@ public class Myuser {                 //用户信息实体类
 
     public void setU_adress(String u_adress) {
         this.u_adress = u_adress;
+    }
+
+    public void setU_phone2(String u_phone2) {
+        this.u_phone2 = u_phone2;
     }
 }

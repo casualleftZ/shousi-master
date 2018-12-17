@@ -7,8 +7,10 @@ import android.os.Bundle;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
+import android.support.v4.view.ViewPager;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -26,7 +28,7 @@ import comqwera.mingrisoft.shousi.activity.fragment.Type_fragment;
 import comqwera.mingrisoft.shousi.activity.fragment.User_fragment;
 
 
-public class MainActivity extends FragmentActivity{
+public class MainActivity extends FragmentActivity {
     private RadioGroup mrg;
 
     private RadioButton radioButton;
@@ -44,10 +46,15 @@ public class MainActivity extends FragmentActivity{
         mrg = findViewById(R.id.rg1);
         initfragment();
         //设置RadioGroup的监听
+//        int id = getIntent().getIntExtra("id", 0);
+
+
         setListenner();
+
     }
 
     private String zhanghao;
+
     private void setListenner() {
 
         mrg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -71,13 +78,12 @@ public class MainActivity extends FragmentActivity{
                         post = 0;
                         break;
                 }
-                Login1DAO login1DAO=new Login1DAO(MainActivity.this);
-                if(login1DAO.getMaxId()==0&&post!=0){
-                    Toast.makeText(MainActivity.this,"123",Toast.LENGTH_SHORT).show();
-                    Intent b=new Intent(MainActivity.this,Login.class);
+                Login1DAO login1DAO = new Login1DAO(MainActivity.this);
+                if (login1DAO.getMaxId() == 0 && post != 0) {
+                    Toast.makeText(MainActivity.this, "请先登录", Toast.LENGTH_SHORT).show();
+                    Intent b = new Intent(MainActivity.this, Login.class);
                     startActivity(b);
-                }
-                else {
+                } else {
                     Basefragment basefragment = getfragment(post);
                     //根据位置得到相应的Fragment
                     //替换
@@ -90,10 +96,10 @@ public class MainActivity extends FragmentActivity{
 
     public void initfragment() {
         fragments = new ArrayList<>();
-        fragments.add(new Home_fragment ());
-        fragments.add(new Type_fragment ());
-        fragments.add(new Order_fragment ());
-        fragments.add(new User_fragment ());
+        fragments.add(new Home_fragment());
+        fragments.add(new Type_fragment());
+        fragments.add(new Order_fragment());
+        fragments.add(new User_fragment());
     }
 
     private Basefragment getfragment(int post) {
@@ -103,9 +109,10 @@ public class MainActivity extends FragmentActivity{
         }
         return null;
     }
+
     /**
-     *@param fromfragment
-     *@param nextfragment
+     * @param fromfragment
+     * @param nextfragment
      */
     private void switchfragment(Fragment fromfragment, Basefragment nextfragment) {
         if (tempfragment != nextfragment) {
@@ -120,9 +127,9 @@ public class MainActivity extends FragmentActivity{
                     if (fromfragment != null) {
                         transaction.hide(fromfragment);
                     }
-                    transaction.add(R.id.fl_connect,nextfragment).commit();
-                }else {
-                    if (fromfragment!=null){
+                    transaction.add(R.id.fl_connect, nextfragment).commit();
+                } else {
+                    if (fromfragment != null) {
                         transaction.hide(fromfragment);
                     }
                     transaction.show(nextfragment).commit();
@@ -132,4 +139,19 @@ public class MainActivity extends FragmentActivity{
         }
     }
 
-}
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        int id = getIntent().getIntExtra("id", 0);
+//        if (id == 2) {
+//            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//
+//            transaction.show(nextfragment).commit();
+//            Intent i=new Intent();
+//            i.setClass(MainActivity.this,Order_fragment.class);
+//            i.putExtra("id",2);
+
+
+
+        }
+

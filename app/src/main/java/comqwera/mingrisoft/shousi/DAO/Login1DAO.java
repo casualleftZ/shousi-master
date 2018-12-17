@@ -25,7 +25,7 @@ public class Login1DAO {
                 new Object[]
                         {
                          login1.getZt_id(),login1.getZt(),
-                                login1.getOr_id(),login1.getZt_id()
+                          login1.getU_id(),login1.getOr_id()
                         });
     }
     /**
@@ -40,8 +40,8 @@ public class Login1DAO {
         db.execSQL ("update login1 set zt=?,u_id=?,or_id=? where zt_id=?",
                 new Object[]
                         {
-                                login1.getZt_id(),login1.getZt(),
-                                login1.getOr_id(),login1.getU_id()
+                                login1.getZt(),login1.getU_id(),
+                                login1.getOr_id(),login1.getZt_id()
                         });
     }
 
