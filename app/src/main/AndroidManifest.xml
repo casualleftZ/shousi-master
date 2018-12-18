@@ -35,6 +35,7 @@
         <activity android:name=".updatewode"/>
         <activity android:name=".Fingerprint">
         </activity>
+        <activity android:name=".ShoppingCartActivity"/>
     </application>
 
 </manifest>
