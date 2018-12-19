@@ -2,6 +2,7 @@ package comqwera.mingrisoft.shousi.activity.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -26,14 +27,14 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
 
     @NonNull
     @Override
-    public viewhodler onCreateViewHolder(@NonNull ViewGroup viewGroup, final int i) {
+    public viewhodler onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View itemView=View.inflate(context, R.layout.recycler_home,null);
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent=new Intent(context, GoodsActivity.class);
-
+                Bundle bundle=new Bundle();
                 context.startActivity(intent);
             }
         });

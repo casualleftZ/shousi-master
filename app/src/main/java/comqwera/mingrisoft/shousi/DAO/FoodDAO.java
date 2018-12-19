@@ -27,11 +27,11 @@ public void add(Food food)
 {
     db=helper.getWritableDatabase ();         //初始化SQLiteDatabase
     //执行添加食物信息操作
-    db.execSQL ("insert into food (f_id,f_name,f_url,f_price,f_dprice,f_sellcount) values (?,?,?,?,?,?)",
+    db.execSQL ("insert into food (f_id,f_type,f_name,f_url,f_price,f_dprice,f_sellcount,f_instruction) values (?,?,?,?,?,?,?,?)",
             new Object[]
                     {
-                            food.getF_id (),food.getF_name (),food.getF_url (),food.getF_price (),food.getF_dprice (),
-                            food.getF_sellcount ()
+                            food.getF_id (),food.getF_type(),food.getF_name (),food.getF_url (),food.getF_price (),food.getF_dprice (),
+                            food.getF_sellcount (),food.getF_instruction()
                     });
 }
 /**
@@ -43,11 +43,11 @@ public void update(Food food)
 {
     db=helper.getWritableDatabase ();            //初始化SQLiteDatabase对象
     //执行修改食物信息操作
-    db.execSQL ("update food set f_id=?,f_name=?,f_url=?,f_price=?,f_dprice=?,f_sellcount=? where _id=?",
+    db.execSQL ("update food set f_id=?,f_type=?,f_name=?,f_url=?,f_price=?,f_dprice=?,f_sellcount=?,f_instruction=? where _id=?",
     new Object[]
             {
-                    food.getF_id (),food.getF_name (),food.getF_url (),food.getF_price (),food.getF_dprice ()
-                    ,food.getF_sellcount ()
+                    food.getF_id (),food.getF_type(),food.getF_name (),food.getF_url (),food.getF_price (),food.getF_dprice ()
+                    ,food.getF_sellcount (),food.getF_instruction()
             });
 }
 /**
@@ -59,7 +59,7 @@ public void update(Food food)
 public  Food find(int id)
 {
     db=helper.getWritableDatabase ();     //初始化SQLiteDatabase对象
-    Cursor cursor=db.rawQuery ("select f_id,f_name,f_url,f_price,f_dprice,f_sellcount from food where f_id=? ",
+    Cursor cursor=db.rawQuery ("select f_id,f_type,f_name,f_url,f_price,f_dprice,f_sellcount,f_instruction from food where f_id=? ",
             new String[]{
             String.valueOf (id)       //更具食物名称,或者编号,查找食物信息，并存储
             });
@@ -67,18 +67,20 @@ public  Food find(int id)
     {
         //将遍历到的收入信息存储到food类中
         return new Food (cursor.getInt (cursor.getColumnIndex ("f_id")),
+                cursor.getString(cursor.getColumnIndex("f_type")),
                 cursor.getString (cursor.getColumnIndex ("f_name")),
                 cursor.getString (cursor.getColumnIndex ("f_url")),
                 cursor.getFloat (cursor.getColumnIndex ("f_price")),
                 cursor.getFloat (cursor.getColumnIndex ("f_dprice")),
-                cursor.getInt (cursor.getColumnIndex ("f_sellcount")));
+                cursor.getInt (cursor.getColumnIndex ("f_sellcount")),
+                cursor.getString (cursor.getColumnIndex ("f_instruction")));
     }
     return null;
 }
     public  Food find2(String name)
     {
         db=helper.getWritableDatabase ();     //初始化SQLiteDatabase对象
-        Cursor cursor=db.rawQuery ("select f_id,f_name,f_url,f_price,f_dprice,f_sellcount from food where f_name=?  ",
+        Cursor cursor=db.rawQuery ("select f_id,f_type,f_name,f_url,f_price,f_dprice,f_sellcount,f_instruction  from food where f_name=?  ",
                 new String[]{
                         String.valueOf (name)        //更具食物名称,或者编号,查找食物信息，并存储
                 });
@@ -86,11 +88,13 @@ public  Food find(int id)
         {
             //将遍历到的收入信息存储到food类中
             return new Food (cursor.getInt (cursor.getColumnIndex ("f_id")),
+                    cursor.getString(cursor.getColumnIndex("f_type")),
                     cursor.getString (cursor.getColumnIndex ("f_name")),
                     cursor.getString (cursor.getColumnIndex ("f_url")),
                     cursor.getFloat (cursor.getColumnIndex ("f_price")),
                     cursor.getFloat (cursor.getColumnIndex ("f_dprice")),
-                    cursor.getInt (cursor.getColumnIndex ("f_sellcount")));
+                    cursor.getInt (cursor.getColumnIndex ("f_sellcount")),
+                    cursor.getString (cursor.getColumnIndex ("f_instruction")));
         }
         return null;
     }
@@ -130,11 +134,13 @@ public List<Food>getScrollData(int start,int count)
     while (cursor.moveToNext ())
     {
         food.add (new Food (cursor.getInt (cursor.getColumnIndex ("f_id")),
+                cursor.getString (cursor.getColumnIndex ("f_type")),
                 cursor.getString (cursor.getColumnIndex ("f_name")),
                 cursor.getString (cursor.getColumnIndex ("f_url")),
                 cursor.getFloat (cursor.getColumnIndex ("f_price")),
                 cursor.getFloat (cursor.getColumnIndex ("f_dprice")),
-                cursor.getInt (cursor.getColumnIndex ("f_sellcount"))));
+                cursor.getInt (cursor.getColumnIndex ("f_sellcount")),
+                cursor.getString (cursor.getColumnIndex ("f_instruction"))));
     }
     return food;
 }
