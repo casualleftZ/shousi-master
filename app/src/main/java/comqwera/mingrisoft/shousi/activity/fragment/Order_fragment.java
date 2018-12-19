@@ -2,6 +2,7 @@ package comqwera.mingrisoft.shousi.activity.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,28 +45,35 @@ public class Order_fragment extends Basefragment {
             @Override
             public void onClick(View v) {
                 TIME = time.getText().toString();
-                renshu=people.getText().toString();
+                renshu = people.getText().toString();
                 SHUOMING = beizhu.getText().toString();
                 PHONE = phone.getText().toString();
                 OnlineorderDAO onlineorderDAO = new OnlineorderDAO(getActivity());
-                Login1DAO login1DAO=new Login1DAO(getActivity());
-                if(login1DAO.find(1).getOr_id()==0) {
-                    Onlineorder onlineorder = new Onlineorder(onlineorderDAO.getMaxId() + 1, UID,
-                            PHONE, 0, renshu, TIME, SHUOMING);
-                    onlineorderDAO.add(onlineorder);
-                    Login1 login1=new Login1();
-                    login1.setZt_id(1);
-                    login1.setU_id(login1DAO.find(1).getU_id());
-                    login1.setZt(login1DAO.find(1).getZt());
-                    login1.setOr_id(1);         //预约状态
-                    login1DAO.update(login1);
+                Login1DAO login1DAO = new Login1DAO(getActivity());
+                if (!TextUtils.isEmpty(TIME) || !TextUtils.isEmpty(renshu) || !TextUtils.isEmpty(SHUOMING)
+                        ||! TextUtils.isEmpty(PHONE)) {
+                    if (login1DAO.find(1).getOr_id() == 0) {
+                        Onlineorder onlineorder = new Onlineorder(onlineorderDAO.getMaxId() + 1, UID,
+                                PHONE, 0, renshu, TIME, SHUOMING);
+                        onlineorderDAO.add(onlineorder);
+                        Login1 login1 = new Login1();
+                        login1.setZt_id(1);
+                        login1.setU_id(login1DAO.find(1).getU_id());
+                        login1.setZt(login1DAO.find(1).getZt());
+                        login1.setOr_id(1);         //预约状态
+                        login1DAO.update(login1);
 
-                   Toast.makeText(getActivity(), "预约成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "预约成功", Toast.LENGTH_SHORT).show();
 
+                    } else {
+                        Toast.makeText(getActivity(), "已经预约成功",
+                                Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
-                    Toast.makeText(getActivity(), "已经预约成功",
-                        Toast.LENGTH_SHORT).show();}
+                    Toast.makeText(getActivity(), "请认真填写预约数据",
+                        Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

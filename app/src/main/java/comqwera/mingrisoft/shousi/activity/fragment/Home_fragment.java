@@ -83,6 +83,7 @@ public class Home_fragment extends Basefragment {
 
 
     }
+
     private void getdtring(){
         shousi hot1=new shousi("今日火爆",R.mipmap.zhujiemian1);
         shousiList.add(hot1);

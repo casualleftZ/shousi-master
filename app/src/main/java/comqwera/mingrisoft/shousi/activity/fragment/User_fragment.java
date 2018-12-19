@@ -89,8 +89,9 @@ public class User_fragment extends Basefragment{
     private String zhiwen1;
     private void initUser(){//信息显示
 
-        Login1DAO login1DAO=new Login1DAO(getActivity());
-        u_id=login1DAO.find(1).getU_id();
+        Login1DAO login1DAO=new Login1DAO(getActivity());   //建立login1对象
+
+        u_id=login1DAO.find(1).getU_id();      //通过login1dao查找u_id
         zhiwen1=Integer.toString(login1DAO.find(1).getZhiwen());
         _id= Integer.toString (u_id);
         MyuserDAO myuserDAO=new MyuserDAO(getActivity());
