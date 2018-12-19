@@ -54,15 +54,14 @@ public void update(Food food)
  * 查找食物信息
  *
  * @param id
- * @param name
  * @return
  */
-public  Food find(int id,String name)
+public  Food find(int id)
 {
     db=helper.getWritableDatabase ();     //初始化SQLiteDatabase对象
-    Cursor cursor=db.rawQuery ("select f_id,f_name,f_url,f_price,f_dprice,f_sellcount from food where f_name=? or f_id ",
+    Cursor cursor=db.rawQuery ("select f_id,f_name,f_url,f_price,f_dprice,f_sellcount from food where f_id=? ",
             new String[]{
-            String.valueOf (id),String.valueOf (name)        //更具食物名称,或者编号,查找食物信息，并存储
+            String.valueOf (id)       //更具食物名称,或者编号,查找食物信息，并存储
             });
     if (cursor.moveToNext ())
     {
@@ -76,7 +75,25 @@ public  Food find(int id,String name)
     }
     return null;
 }
-
+    public  Food find2(String name)
+    {
+        db=helper.getWritableDatabase ();     //初始化SQLiteDatabase对象
+        Cursor cursor=db.rawQuery ("select f_id,f_name,f_url,f_price,f_dprice,f_sellcount from food where f_name=?  ",
+                new String[]{
+                        String.valueOf (name)        //更具食物名称,或者编号,查找食物信息，并存储
+                });
+        if (cursor.moveToNext ())
+        {
+            //将遍历到的收入信息存储到food类中
+            return new Food (cursor.getInt (cursor.getColumnIndex ("f_id")),
+                    cursor.getString (cursor.getColumnIndex ("f_name")),
+                    cursor.getString (cursor.getColumnIndex ("f_url")),
+                    cursor.getFloat (cursor.getColumnIndex ("f_price")),
+                    cursor.getFloat (cursor.getColumnIndex ("f_dprice")),
+                    cursor.getInt (cursor.getColumnIndex ("f_sellcount")));
+        }
+        return null;
+    }
 /**
  * 删除食物信息
  *

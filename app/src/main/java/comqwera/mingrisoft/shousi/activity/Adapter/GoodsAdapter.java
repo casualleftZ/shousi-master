@@ -153,7 +153,9 @@ public class GoodsAdapter extends BaseAdapter implements StickyListHeadersAdapte
 
     private Animation getShowAnimation(){
         AnimationSet set = new AnimationSet(true);
-        RotateAnimation rotate = new RotateAnimation(0,720,RotateAnimation.RELATIVE_TO_SELF,0.5f,RotateAnimation.RELATIVE_TO_SELF,0.5f);
+        RotateAnimation rotate = new RotateAnimation(0,720,
+                RotateAnimation.RELATIVE_TO_SELF,0.5f,RotateAnimation.
+                RELATIVE_TO_SELF,0.5f);
         set.addAnimation(rotate);
         TranslateAnimation translate = new TranslateAnimation(
                 TranslateAnimation.RELATIVE_TO_SELF,2f
@@ -169,7 +171,8 @@ public class GoodsAdapter extends BaseAdapter implements StickyListHeadersAdapte
 
     private Animation getHiddenAnimation(){
         AnimationSet set = new AnimationSet(true);
-        RotateAnimation rotate = new RotateAnimation(0,720,RotateAnimation.RELATIVE_TO_SELF,0.5f,RotateAnimation.RELATIVE_TO_SELF,0.5f);
+        RotateAnimation rotate = new RotateAnimation(0,720,
+                RotateAnimation.RELATIVE_TO_SELF,0.5f,RotateAnimation.RELATIVE_TO_SELF,0.5f);
         set.addAnimation(rotate);
         TranslateAnimation translate = new TranslateAnimation(
                 TranslateAnimation.RELATIVE_TO_SELF,0
