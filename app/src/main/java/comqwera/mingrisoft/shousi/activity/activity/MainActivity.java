@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 
 import android.widget.Toast;
+import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.DAO.Login1DAO;
 import comqwera.mingrisoft.shousi.activity.fragment.Basefragment;
 import comqwera.mingrisoft.shousi.activity.fragment.Home_fragment;

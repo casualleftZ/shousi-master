@@ -1,10 +1,10 @@
 package comqwera.mingrisoft.shousi.model;
 
-public class shousi {
+public class Shousi {
         private String name;
         private int imageID;
 
-        public shousi(String name, int imageID) {
+        public Shousi(String name, int imageID) {
             this.name = name;
             this.imageID=imageID;
         }

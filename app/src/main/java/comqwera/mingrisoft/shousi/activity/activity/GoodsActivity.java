@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import comqwera.mingrisoft.shousi.activity.activity.R;
 
 import java.io.File;
 

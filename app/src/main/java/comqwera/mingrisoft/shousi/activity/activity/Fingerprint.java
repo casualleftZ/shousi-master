@@ -10,6 +10,7 @@ import android.security.keystore.KeyProperties;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
+import comqwera.mingrisoft.shousi.activity.activity.R;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

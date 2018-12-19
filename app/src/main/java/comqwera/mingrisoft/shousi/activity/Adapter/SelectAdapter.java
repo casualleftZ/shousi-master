@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import java.text.NumberFormat;
 
+
 import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.activity.activity.ShoppingCartActivity;
 import comqwera.mingrisoft.shousi.model.GoodsItem;

@@ -28,6 +28,7 @@ import com.flipboard.bottomsheet.BottomSheetLayout;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
+import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.activity.Adapter.GoodsAdapter;
 import comqwera.mingrisoft.shousi.activity.Adapter.SelectAdapter;
 import comqwera.mingrisoft.shousi.activity.Adapter.TypeAdapter;
