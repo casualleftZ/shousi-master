@@ -13,7 +13,7 @@ public class Restaurant {
         super();
     }
 //定义有参构造函数，用来初始化饭店入信息实体类中的各个字段
-    public Restaurant(int r_id,String password,String r_name,String r_opentime,String r_address,
+    public Restaurant(int r_id,String r_password,String r_name,String r_opentime,String r_address,
                       String r_phone,String r_discription){
         super();
         this.r_id=r_id;            //为商家编号赋值

@@ -103,11 +103,27 @@ public class Login extends Activity {
                         if (restaurantDAO.find (zhanghao) == null) {
                             Toast.makeText (Login.this, "该商家账号未注册", Toast.LENGTH_SHORT).show ();
                             return;
-                        } else if (!restaurantDAO.find (zhanghao).getR_password ().equals (pwd)) {
+                        }
+                            else if (!restaurantDAO.find (zhanghao).getR_password ().equals (pwd)) {
                             Toast.makeText (Login.this, "密码错误", Toast.LENGTH_SHORT).show ();
                             return;
                         }
-                        else{Toast.makeText (Login.this, "登录成功", Toast.LENGTH_SHORT).show ();
+                        else{
+                            Login1DAO login1DAO=new Login1DAO(Login.this);
+                            id=restaurantDAO.find(zhanghao).getR_id();
+                            if(login1DAO.getMaxId()==0){
+                            Login1 login1=new Login1(1,1,id,0,0);
+                            login1DAO.add(login1);
+                            }
+                            else {
+                                Login1 login1=new Login1();
+                                login1.setU_id(id);
+                                login1.setZt_id(1);
+                                login1.setZt(1);
+                                login1.setOr_id(0);
+                                login1.setZhiwen(0);
+                                login1DAO.update(login1);
+                            }
                             intent.setClass (Login.this, MainActivity.class);
                             startActivity (intent);
                         }

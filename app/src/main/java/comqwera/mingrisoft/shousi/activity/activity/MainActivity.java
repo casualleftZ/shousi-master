@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 
 import android.widget.Toast;
+import comqwera.mingrisoft.shousi.DAO.RestaurantDAO;
 import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.DAO.Login1DAO;
 import comqwera.mingrisoft.shousi.activity.fragment.Basefragment;
@@ -27,6 +28,7 @@ import comqwera.mingrisoft.shousi.activity.fragment.Home_fragment;
 import comqwera.mingrisoft.shousi.activity.fragment.Order_fragment;
 import comqwera.mingrisoft.shousi.activity.fragment.Type_fragment;
 import comqwera.mingrisoft.shousi.activity.fragment.User_fragment;
+import comqwera.mingrisoft.shousi.model.Restaurant;
 
 
 public class MainActivity extends FragmentActivity {
@@ -43,6 +45,12 @@ public class MainActivity extends FragmentActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_home);
+        RestaurantDAO restaurantDAO=new RestaurantDAO(MainActivity.this);
+        if(restaurantDAO.getMaxId()==0){
+        Restaurant restaurant=new Restaurant(1,"chenhuanzhenchou","陈桓寿司","8:00","江西师范大学",
+                "10086","陈桓牌寿司好吃不上火");
+
+        restaurantDAO.add(restaurant);}
         fragment = findViewById(R.id.fl_connect);
         mrg = findViewById(R.id.rg1);
         initfragment();

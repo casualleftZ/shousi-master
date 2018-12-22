@@ -36,6 +36,7 @@
         <activity android:name=".Fingerprint">
         </activity>
         <activity android:name=".ShoppingCartActivity"/>
+        <activity android:name=".FindActivity"/>
     </application>
 
 </manifest>

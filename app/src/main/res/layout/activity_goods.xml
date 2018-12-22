@@ -57,13 +57,17 @@
                     android:layout_height="350dp"
                     android:layout_gravity="center_horizontal"
                    />
-
+                <TextView
+                        android:id="@+id/tv_good_info_jiage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:textColor="#323427" />
                 <TextView
                     android:id="@+id/tv_good_info_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:text="三纹鱼寿司"
                     android:textColor="#323427" />
 
                 <TextView
@@ -71,7 +75,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
-                    android:text="精选美味食材，回味无穷"
                     android:textColor="#767f86" />
                 <comqwera.mingrisoft.shousi.activity.View.NumberAddSubView
                         android:layout_width="wrap_content"

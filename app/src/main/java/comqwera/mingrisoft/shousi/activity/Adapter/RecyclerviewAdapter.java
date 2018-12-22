@@ -3,6 +3,7 @@ package comqwera.mingrisoft.shousi.activity.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -37,7 +38,6 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
             public void onClick(View v) {
 
                 Intent intent = new Intent(context, GoodsActivity.class);
-                Bundle bundle = new Bundle();
                 context.startActivity(intent);
             }
         });
@@ -49,6 +49,7 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
         Shousi shousi = shousiList.get(postion);
         viewodler.imageView.setImageResource(shousi.getImageID());
         viewodler.textView.setText(shousi.getName());
+
     }
 
     //得到总条数
@@ -61,20 +62,27 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
 
         private TextView textView;
         private ImageView imageView;
-
+        private String cai;
         public viewhodler(@NonNull View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.iv_home);
             textView = (TextView) itemView.findViewById(R.id.tv);
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Toast.makeText(context, "data==" + shousiList.get(getLayoutPosition()), Toast.LENGTH_SHORT).show();
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    cai=textView.getText().toString();
+                    Intent intent = new Intent(context, GoodsActivity.class);
+                    Bundle bundle=new Bundle();
+                    bundle.putString ("cai", cai);
+                    intent.putExtras (bundle);
+                    context.startActivity(intent);
+
+//                     Toast.makeText(context, "data==" + shousiList.get(getLayoutPosition()), Toast.LENGTH_SHORT).show();
 //                    if(onItemClickListener !=null){
 //                        onItemClickListener.onItemClick(v,shousiList.get(getLayoutPosition()));
 //                    }
-//                }
-//            });
+                }
+            });
         }
     }
 //    public  interface OnItemClickListener{

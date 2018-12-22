@@ -1,15 +1,14 @@
 package comqwera.mingrisoft.shousi.activity.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
+import android.widget.*;
 import com.bumptech.glide.Glide;
 import com.youth.banner.Banner;
 import com.youth.banner.Transformer;
@@ -17,6 +16,7 @@ import com.youth.banner.loader.ImageLoader;
 
 import comqwera.mingrisoft.shousi.DAO.FoodDAO;
 import comqwera.mingrisoft.shousi.activity.Adapter.RecyclerviewAdapter;
+import comqwera.mingrisoft.shousi.activity.activity.FindActivity;
 import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.model.Shousi;
 
@@ -29,19 +29,30 @@ public class Home_fragment extends Basefragment {
     private RecyclerView recyclerView;
     private RecyclerviewAdapter recyclerviewAdapter;
     private ArrayList<Shousi> shousiList = new ArrayList<>();
-
+    private TextView tv_seach;
     @Override
-    public View initview() {
+    public View initview() {//搜索功能跳转
         View view = View.inflate(mcontext, R.layout.home_fragment, null);
+        tv_seach=(TextView)view.findViewById(R.id.tv_seach);
+        tv_seach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),FindActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
+
 
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initRecyclerView();
         getdtring();
         init();
+
     }
+
 
     //banner图片轮播
     public void init() {
@@ -93,27 +104,19 @@ public class Home_fragment extends Basefragment {
 //            @Override
 //            public void onItemClick(View view, Shousi data) {
 //                Toast.makeText(getActivity(),"data=="+shousiList,Toast.LENGTH_SHORT).show();
+//
+////                Intent intent=new Intent();
+////                shouyewenzi1= (String) intent.getExtras().get("shouyewenzi1");
+////                shouyetupian1= (String) intent.getExtras().get("shouyetupian1");
+////                Bundle bundle=new Bundle();
+////                bundle.putString ("shouyewenzi1",shouyewenzi1);
+////                bundle.putString ("shouyewenzi1",shouyetupian1);
 //            }
 //        });
 
     }
-
     private String shouyewenzi1;
-    private String shouyewenzi2;
-    private String shouyewenzi3;
-    private String shouyewenzi4;
-    private String shouyewenzi5;
-    private String shouyewenzi6;
-    private String shouyewenzi7;
-    private String shouyewenzi8;
     private String shouyetupian1;
-    private String shouyetupian2;
-    private String shouyetupian3;
-    private String shouyetupian4;
-    private String shouyetupian5;
-    private String shouyetupian6;
-    private String shouyetupian7;
-    private String shouyetupian8;
     private void getdtring() { //主界面8幅图
         FoodDAO foodDAO = new FoodDAO(getActivity());
         if (foodDAO.getMaxId() > 0) {
@@ -127,9 +130,9 @@ public class Home_fragment extends Basefragment {
             shousiList.add(hot1);
         }
         if (foodDAO.getMaxId() > 1) {
-            shouyewenzi2 = foodDAO.find(2).getF_name();
-            shouyetupian2 = foodDAO.find(2).getF_url();
-            Shousi hot2 = new Shousi(shouyewenzi2,  getDrawResourceID(shouyetupian2 ));
+            shouyewenzi1 = foodDAO.find(2).getF_name();
+            shouyetupian1 = foodDAO.find(2).getF_url();
+            Shousi hot2 = new Shousi(shouyewenzi1,  getDrawResourceID(shouyetupian1 ));
             shousiList.add(hot2);
         }
         else{
@@ -137,9 +140,9 @@ public class Home_fragment extends Basefragment {
         shousiList.add(hot2);
         }
         if (foodDAO.getMaxId() > 2) {
-            shouyewenzi3= foodDAO.find(3).getF_name();
-            shouyetupian3 = foodDAO.find(3).getF_url();
-            Shousi hot3 = new Shousi(shouyewenzi3,  getDrawResourceID(shouyetupian3 ));
+            shouyewenzi1= foodDAO.find(3).getF_name();
+            shouyetupian1 = foodDAO.find(3).getF_url();
+            Shousi hot3 = new Shousi(shouyewenzi1,  getDrawResourceID(shouyetupian1 ));
             shousiList.add(hot3);
         }
         else
@@ -148,9 +151,9 @@ public class Home_fragment extends Basefragment {
                 shousiList.add(hot3);
             }
         if (foodDAO.getMaxId() > 3) {
-            shouyewenzi4= foodDAO.find(4).getF_name();
-            shouyetupian4 = foodDAO.find(4).getF_url();
-            Shousi hot4 = new Shousi(shouyewenzi4,  getDrawResourceID(shouyetupian4 ));
+            shouyewenzi1= foodDAO.find(4).getF_name();
+            shouyetupian1 = foodDAO.find(4).getF_url();
+            Shousi hot4 = new Shousi(shouyewenzi1,  getDrawResourceID(shouyetupian1 ));
             shousiList.add(hot4);
         }
           else {
@@ -158,18 +161,18 @@ public class Home_fragment extends Basefragment {
             shousiList.add(hot4);
         }
         if (foodDAO.getMaxId() > 4) {
-            shouyewenzi5= foodDAO.find(5).getF_name();
-            shouyetupian5 = foodDAO.find(5).getF_url();
-            Shousi hot5 = new Shousi(shouyewenzi5,  getDrawResourceID(shouyetupian5 ));
+            shouyewenzi1= foodDAO.find(5).getF_name();
+            shouyetupian1= foodDAO.find(5).getF_url();
+            Shousi hot5 = new Shousi(shouyewenzi1,  getDrawResourceID(shouyetupian1 ));
             shousiList.add(hot5);
         }
         else{
         Shousi hot5 = new Shousi("待添加", R.mipmap.daitianjia);
         shousiList.add(hot5);}
         if (foodDAO.getMaxId() > 5) {
-            shouyewenzi6= foodDAO.find(6).getF_name();
-            shouyetupian6 = foodDAO.find(6).getF_url();
-            Shousi hot5 = new Shousi(shouyewenzi6,  getDrawResourceID(shouyetupian6 ));
+            shouyewenzi1= foodDAO.find(6).getF_name();
+            shouyetupian1 = foodDAO.find(6).getF_url();
+            Shousi hot5 = new Shousi(shouyewenzi1,  getDrawResourceID(shouyetupian1 ));
             shousiList.add(hot5);
         }
         else {
@@ -177,9 +180,9 @@ public class Home_fragment extends Basefragment {
             shousiList.add(hot6);
         }
         if (foodDAO.getMaxId() > 6) {
-            shouyewenzi7= foodDAO.find(7).getF_name();
-            shouyetupian7 = foodDAO.find(7).getF_url();
-            Shousi hot7 = new Shousi(shouyewenzi7,  getDrawResourceID(shouyetupian7 ));
+            shouyewenzi1= foodDAO.find(7).getF_name();
+            shouyetupian1 = foodDAO.find(7).getF_url();
+            Shousi hot7 = new Shousi(shouyewenzi1,  getDrawResourceID(shouyetupian1 ));
             shousiList.add(hot7);
         }
         else {
@@ -187,9 +190,9 @@ public class Home_fragment extends Basefragment {
             shousiList.add(hot7);
         }
         if (foodDAO.getMaxId() >7) {
-            shouyewenzi8= foodDAO.find(8).getF_name();
-            shouyetupian8 = foodDAO.find(8).getF_url();
-            Shousi hot8 = new Shousi(shouyewenzi8,  getDrawResourceID(shouyetupian8 ));
+            shouyewenzi1= foodDAO.find(8).getF_name();
+            shouyetupian1 = foodDAO.find(8).getF_url();
+            Shousi hot8 = new Shousi(shouyewenzi1,  getDrawResourceID(shouyetupian1 ));
             shousiList.add(hot8);
         }
         else {
