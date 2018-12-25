@@ -10,12 +10,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.DAO.Login1DAO;
 import comqwera.mingrisoft.shousi.DAO.MyuserDAO;
 import comqwera.mingrisoft.shousi.DAO.RestaurantDAO;
 
-import comqwera.mingrisoft.shousi.activity.fragment.User_fragment;
+import comqwera.mingrisoft.shousi.business.activity.Main2Activity;
 import comqwera.mingrisoft.shousi.model.Login1;
 
 public class Login extends Activity {
@@ -112,19 +111,19 @@ public class Login extends Activity {
                             Login1DAO login1DAO=new Login1DAO(Login.this);
                             id=restaurantDAO.find(zhanghao).getR_id();
                             if(login1DAO.getMaxId()==0){
-                            Login1 login1=new Login1(1,1,id,0,0);
+                            Login1 login1=new Login1(1,2,id,0,0);
                             login1DAO.add(login1);
                             }
                             else {
                                 Login1 login1=new Login1();
                                 login1.setU_id(id);
                                 login1.setZt_id(1);
-                                login1.setZt(1);
+                                login1.setZt(2);
                                 login1.setOr_id(0);
                                 login1.setZhiwen(0);
                                 login1DAO.update(login1);
                             }
-                            intent.setClass (Login.this, MainActivity.class);
+                            intent.setClass (Login.this, Main2Activity.class);
                             startActivity (intent);
                         }
                         break;

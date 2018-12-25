@@ -8,6 +8,7 @@ import android.widget.Toast;
 import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.DAO.Login1DAO;
 import comqwera.mingrisoft.shousi.DAO.MyuserDAO;
+import comqwera.mingrisoft.shousi.business.activity.Main2Activity;
 
 
 public class LauncherActivity extends Activity {
@@ -18,7 +19,7 @@ public class LauncherActivity extends Activity {
         super.onCreate(savedInstancestate);
         setContentView(R.layout.activity_laucher);
 
-        Login1DAO login1DAO = new Login1DAO(LauncherActivity.this);
+        final Login1DAO login1DAO = new Login1DAO(LauncherActivity.this);
         if (login1DAO.getMaxId() == 1) {
             data = login1DAO.find(1).getZhiwen();
         } else data = 0;
@@ -28,12 +29,20 @@ public class LauncherActivity extends Activity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    //在主线程中执行
-                    startMainActivity();
+                    if(login1DAO.find(1).getZt()==2){//在主线程中执行
+                    startMainActivity2();}
+                    else{
+                        startMainActivity();
+                    }
                 }
 
                 private void startMainActivity() {
                     Intent intent = new Intent(LauncherActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                private void startMainActivity2(){
+                    Intent intent = new Intent(LauncherActivity.this, Main2Activity.class);
                     startActivity(intent);
                     finish();
                 }
