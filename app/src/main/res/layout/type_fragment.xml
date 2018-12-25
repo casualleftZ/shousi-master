@@ -1,73 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f2f2f2"
-    android:orientation="vertical"
+    android:background="@mipmap/typebg"
     android:id="@+id/containerLayout"
     android:gravity="center">
 
-    <LinearLayout
+    <TextView
+            android:id="@+id/tx_type"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:orientation="horizontal"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_vertical">
-        <TextView
-                android:id="@+id/hot"
-                android:background="@drawable/hot"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:gravity="center"
-                android:text="热销"/>
-        <TextView
-                android:id="@+id/discount"
-                android:background="@drawable/circle_red"
-                android:layout_marginLeft="40dp"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:gravity="center"
-                android:text="优惠"/>
-        <TextView
-                android:id="@+id/new_foods"
-                android:background="@drawable/circle_blue"
-                android:layout_marginLeft="40dp"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:gravity="center"
-                android:text="新品上市"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginTop="30dp">
-        <TextView
-            android:id="@+id/delicious"
-            android:background="@drawable/circle_red"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:gravity="center"
-            android:text="美味经典"/>
-        <TextView
-            android:id="@+id/snack"
-            android:background="@drawable/circle_blue"
-            android:layout_marginLeft="40dp"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:gravity="center"
-            android:text="风味小吃"/>
-        <TextView
-            android:id="@+id/drink"
-            android:background="@drawable/hot"
-            android:layout_marginLeft="40dp"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:gravity="center"
-            android:text="甜美饮品"/>
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:text="请点击，美味从此开始"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:textSize="20sp"
+            android:textColor="#f10a44"/>
+
+   <comqwera.mingrisoft.shousi.activity.View.Lmenu
+           android:id="@+id/lmenu"
+           android:layout_below="@id/tx_type"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerInParent="true"
+           android:gravity="center_horizontal"
+   >
+
+   </comqwera.mingrisoft.shousi.activity.View.Lmenu>
 
 
-</LinearLayout>
+
+</RelativeLayout>

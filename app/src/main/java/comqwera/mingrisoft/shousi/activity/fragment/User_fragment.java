@@ -27,6 +27,7 @@ import comqwera.mingrisoft.shousi.DAO.MyuserDAO;
 import comqwera.mingrisoft.shousi.activity.Adapter.UserAdapter;
 import comqwera.mingrisoft.shousi.activity.activity.Login;
 
+import comqwera.mingrisoft.shousi.activity.activity.Orderfinish;
 import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.activity.activity.updatewode;
 import comqwera.mingrisoft.shousi.model.User;
@@ -42,10 +43,19 @@ public class User_fragment extends Basefragment{
     private ImageView img_show;
     private Button xiugaixinxi;
     private int u_id;
+    private ImageView daifukuang_picture;
     public View initview() {
         View view = View.inflate (mcontext, R.layout.user_activity, null);
 
         tuichudenglu = (Button) view.findViewById (R.id.tuichudenglu);
+        daifukuang_picture=(ImageView)view.findViewById(R.id.daifukuang_picture) ;
+        daifukuang_picture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a=new Intent(getActivity(),Orderfinish.class);
+                startActivity(a);
+            }
+        });
         tuichudenglu.setOnClickListener (new View.OnClickListener () {
             @Override
             public void onClick(View v) {
