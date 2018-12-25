@@ -22,6 +22,7 @@ public class GoodsActivity extends AppCompatActivity {
     private String cai_pingjia;
     private String cai_picture;
     private float cai_price;
+    private Button btn_good_info_addcart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +54,13 @@ public class GoodsActivity extends AppCompatActivity {
         tv_good_info_jiage.setText(Float.toString(cai_price));
         int resID=getResources().getIdentifier(cai_picture,"mipmap",getPackageName());
         iv_good_info_image.setImageResource(resID);
+        btn_good_info_addcart=(Button)findViewById(R.id.btn_good_info_addcart);
+        btn_good_info_addcart.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
 }

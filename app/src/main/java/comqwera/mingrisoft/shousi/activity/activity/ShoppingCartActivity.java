@@ -215,6 +215,7 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
         }
         update(refreshGoodList);
     }
+
     //移除商品
     public void remove(GoodsItem item,boolean refreshGoodList){
 
