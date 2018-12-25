@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+            android:id="@+id/hot"
+            android:layout_width="35dip"
+            android:layout_height="35dip"
+            android:layout_above="@+id/center"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/hot" />
+
+    <ImageView
+            android:id="@+id/discount"
+            android:layout_width="35dip"
+            android:layout_height="35dip"
+            android:layout_alignTop="@id/center"
+            android:layout_marginBottom="5dp"
+            android:layout_toLeftOf="@id/center"
+            android:src="@mipmap/discount" />
+
+    <ImageView
+            android:id="@+id/new_foods"
+            android:layout_width="35dip"
+            android:layout_height="35dip"
+            android:layout_alignTop="@+id/center"
+            android:layout_marginBottom="25dp"
+            android:layout_toRightOf="@+id/center"
+            android:src="@mipmap/new_food" />
+    <ImageView
+            android:id="@+id/delicious"
+            android:layout_width="35dip"
+            android:layout_height="35dip"
+            android:layout_below="@+id/discount"
+            android:layout_marginBottom="30dp"
+            android:layout_toRightOf="@+id/center"
+            android:layout_marginTop="45dp"
+            android:layout_marginLeft="-10dp"
+            android:src="@mipmap/delicious" />
+
+    <ImageView
+            android:id="@+id/snack"
+            android:layout_width="35dip"
+            android:layout_height="35dip"
+            android:layout_below="@id/discount"
+            android:layout_marginTop="45dp"
+            android:layout_marginRight="-10dp"
+            android:layout_marginBottom="25dp"
+            android:layout_toLeftOf="@+id/center"
+            android:src="@mipmap/snack" />
+
+    <ImageView
+            android:id="@+id/drink"
+            android:layout_width="35dip"
+            android:layout_height="35dip"
+            android:layout_below="@+id/center"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/drink" />
+
+
+    <comqwera.mingrisoft.shousi.activity.View.RoundImageView
+            android:id="@+id/center"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="50dp"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/meum"/>
+
+</RelativeLayout>
