@@ -7,10 +7,14 @@
     <include android:id="@+id/titlebar"
         layout="@layout/la1"/>
 
-    <ScrollView android:layout_width="wrap_content" android:layout_height="wrap_content"
-    android:layout_below="@id/titlebar">
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="vertical">
+    <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titlebar">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
     <com.youth.banner.Banner
 

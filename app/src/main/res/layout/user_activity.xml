@@ -103,12 +103,14 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/xiugaixinxi"
                 android:text="修改信息"
+                android:background="@drawable/loginbutton"
                 android:layout_gravity="center"
         />
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tuichudenglu"
+            android:background="@drawable/loginbutton2"
             android:text="退出登录"
             android:layout_gravity="center"
             android:layout_below="@id/xiugaixinxi"
