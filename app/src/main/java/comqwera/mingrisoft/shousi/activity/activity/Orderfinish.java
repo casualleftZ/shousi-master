@@ -50,18 +50,18 @@ public class Orderfinish extends Activity {
            Time=null;
            People=null;
        }
-        timetext = (TextView) findViewById(R.id.timeText);
-        peopletext = (TextView) findViewById(R.id.peopletext);
-        phonetext = (TextView) findViewById(R.id.phonetext);
-        or_memotext = (TextView) findViewById(R.id.or_memotext);
+        timetext = findViewById(R.id.timeText);
+        peopletext = findViewById(R.id.peopletext);
+        phonetext = findViewById(R.id.phonetext);
+        or_memotext = findViewById(R.id.or_memotext);
 
         timetext.setText(Time);
         peopletext.setText(People);
         phonetext.setText(Phone);
         or_memotext.setText(Beizhu);
 
-        tuichuyuyueButton = (Button) findViewById(R.id.tuichubuyuyuetton);
-        quxiaoyuyueButton = (Button) findViewById(R.id.quxiaoyuyue);
+        tuichuyuyueButton = findViewById(R.id.tuichubuyuyuetton);
+        quxiaoyuyueButton = findViewById(R.id.quxiaoyuyue);
 
         tuichuyuyueButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -72,17 +72,17 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
     }
 
     private void initView(){
-        tvCount = (TextView) findViewById(R.id.tvCount);
-        tvCost = (TextView) findViewById(R.id.tvCost);
-        tvTips = (TextView) findViewById(R.id.tvTips);
-        tvSubmit  = (TextView) findViewById(R.id.tvSubmit);
-        rvType = (RecyclerView) findViewById(R.id.typeRecyclerView);
+        tvCount = findViewById(R.id.tvCount);
+        tvCost = findViewById(R.id.tvCost);
+        tvTips = findViewById(R.id.tvTips);
+        tvSubmit  = findViewById(R.id.tvSubmit);
+        rvType = findViewById(R.id.typeRecyclerView);
 
-        imgCart = (ImageView) findViewById(R.id.imgCart);
+        imgCart = findViewById(R.id.imgCart);
         anim_mask_layout = (RelativeLayout) findViewById(R.id.containerLayout);
-        bottomSheetLayout = (BottomSheetLayout) findViewById(R.id.bottomSheetLayout);
+        bottomSheetLayout = findViewById(R.id.bottomSheetLayout);
 
-        listView = (StickyListHeadersListView) findViewById(R.id.itemListView);
+        listView = findViewById(R.id.itemListView);
 
         rvType.setLayoutManager(new LinearLayoutManager(this));
         typeAdapter = new TypeAdapter(this,typeList);
@@ -324,9 +324,9 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
 
     private View createBottomSheetView(){
         View view = LayoutInflater.from(this).inflate(R.layout.layout_bottom_sheet,(ViewGroup) getWindow().getDecorView(),false);
-        rvSelected = (RecyclerView) view.findViewById(R.id.selectRecyclerView);
+        rvSelected = view.findViewById(R.id.selectRecyclerView);
         rvSelected.setLayoutManager(new LinearLayoutManager(this));
-        TextView clear = (TextView) view.findViewById(R.id.clear);
+        TextView clear = view.findViewById(R.id.clear);
         clear.setOnClickListener(this);
         selectAdapter = new SelectAdapter(this,selectedList);
         rvSelected.setAdapter(selectAdapter);

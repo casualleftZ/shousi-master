@@ -27,7 +27,7 @@ public class GoodsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_goods);
-        ib_fanhui=(ImageButton)findViewById(R.id.ib_fanhui);
+        ib_fanhui= findViewById(R.id.ib_fanhui);
         ib_fanhui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,10 +42,10 @@ public class GoodsActivity extends AppCompatActivity {
         bundle.putString ("cai", cai);
         Toast.makeText(GoodsActivity.this,cai,Toast.LENGTH_SHORT).show();
         FoodDAO foodDAO=new FoodDAO(GoodsActivity.this);
-        iv_good_info_image=(ImageView)findViewById(R.id.iv_good_info_image);
-        tv_good_info_name=(TextView) findViewById(R.id.tv_good_info_name);
-        tv_good_info_desc=(TextView)findViewById(R.id.tv_good_info_desc);
-        tv_good_info_jiage=(TextView)findViewById(R.id.tv_good_info_jiage);
+        iv_good_info_image= findViewById(R.id.iv_good_info_image);
+        tv_good_info_name= findViewById(R.id.tv_good_info_name);
+        tv_good_info_desc= findViewById(R.id.tv_good_info_desc);
+        tv_good_info_jiage= findViewById(R.id.tv_good_info_jiage);
         cai_pingjia=foodDAO.find2(cai).getF_instruction();
         cai_picture=foodDAO.find2(cai).getF_url();
         cai_price=foodDAO.find2(cai).getF_price();
@@ -54,7 +54,7 @@ public class GoodsActivity extends AppCompatActivity {
         tv_good_info_jiage.setText(Float.toString(cai_price));
         int resID=getResources().getIdentifier(cai_picture,"mipmap",getPackageName());
         iv_good_info_image.setImageResource(resID);
-        btn_good_info_addcart=(Button)findViewById(R.id.btn_good_info_addcart);
+        btn_good_info_addcart= findViewById(R.id.btn_good_info_addcart);
         btn_good_info_addcart.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

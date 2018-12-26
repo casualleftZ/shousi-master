@@ -56,11 +56,11 @@ public class SelectAdapter extends RecyclerView.Adapter<SelectAdapter.ViewHolder
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tvName = (TextView) itemView.findViewById(R.id.tvName);
-            tvCost = (TextView) itemView.findViewById(R.id.tvCost);
-            tvCount = (TextView) itemView.findViewById(R.id.count);
-            tvMinus = (TextView) itemView.findViewById(R.id.tvMinus);
-            tvAdd = (TextView) itemView.findViewById(R.id.tvAdd);
+            tvName = itemView.findViewById(R.id.tvName);
+            tvCost = itemView.findViewById(R.id.tvCost);
+            tvCount = itemView.findViewById(R.id.count);
+            tvMinus = itemView.findViewById(R.id.tvMinus);
+            tvAdd = itemView.findViewById(R.id.tvAdd);
             tvMinus.setOnClickListener(this);
             tvAdd.setOnClickListener(this);
         }

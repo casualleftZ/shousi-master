@@ -54,8 +54,8 @@ public class TypeAdapter extends RecyclerView.Adapter<TypeAdapter.ViewHolder> {
         private GoodsItem item;
         public ViewHolder(View itemView) {
             super(itemView);
-            tvCount = (TextView) itemView.findViewById(R.id.tvCount);
-            type = (TextView) itemView.findViewById(R.id.type);
+            tvCount = itemView.findViewById(R.id.tvCount);
+            type = itemView.findViewById(R.id.type);
             itemView.setOnClickListener(this);
         }
 

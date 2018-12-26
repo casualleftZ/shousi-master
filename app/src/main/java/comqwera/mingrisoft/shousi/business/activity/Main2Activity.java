@@ -23,7 +23,7 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main2);
-        gridView=(GridView)findViewById(R.id.GridView1);
+        gridView= findViewById(R.id.GridView1);
         PictureAdapter adapter=new PictureAdapter(titles,images,this);//创建picture对象
         gridView.setAdapter(adapter);                      //为GridView设置数据源
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

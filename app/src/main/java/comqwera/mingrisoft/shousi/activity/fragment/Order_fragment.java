@@ -35,12 +35,12 @@ public class Order_fragment extends Basefragment {
     public View initview() {
         View view = View.inflate(mcontext, R.layout.order, null);
         Login1DAO login1DAO = new Login1DAO(getActivity());
-        yuyuebutton = (Button) view.findViewById(R.id.yuyuebutton);
-        yuyuexinxi = (Button) view.findViewById(R.id.yuyuexinxi);
-        time = (EditText)view.findViewById(R.id.time);
-        people =(EditText) view.findViewById(R.id.people1);
-        phone = (EditText)view.findViewById(R.id.phone);
-        beizhu = (EditText)view.findViewById(R.id.or_memo);
+        yuyuebutton = view.findViewById(R.id.yuyuebutton);
+        yuyuexinxi = view.findViewById(R.id.yuyuexinxi);
+        time = view.findViewById(R.id.time);
+        people = view.findViewById(R.id.people1);
+        phone = view.findViewById(R.id.phone);
+        beizhu = view.findViewById(R.id.or_memo);
         UID = login1DAO.find(1).getU_id();
         yuyuebutton.setOnClickListener(new View.OnClickListener() {
             @Override

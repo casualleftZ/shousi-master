@@ -35,13 +35,13 @@ public class Lmenu extends RelativeLayout implements View.OnClickListener {
 
     private void initView(Context context) {
         LayoutInflater.from(context).inflate(R.layout.menu_layout, this);
-        center=(ImageView) findViewById(R.id.center);
-        hot=(ImageView) findViewById(R.id.hot);
-        discount=(ImageView) findViewById(R.id.discount);
-        new_foods=(ImageView) findViewById(R.id.new_foods);
-        delicious=(ImageView) findViewById(R.id.delicious);
-        snack=(ImageView) findViewById(R.id.snack);
-        drink=(ImageView) findViewById(R.id.drink);
+        center= findViewById(R.id.center);
+        hot= findViewById(R.id.hot);
+        discount= findViewById(R.id.discount);
+        new_foods= findViewById(R.id.new_foods);
+        delicious= findViewById(R.id.delicious);
+        snack= findViewById(R.id.snack);
+        drink= findViewById(R.id.drink);
 
         //将四个Imageview放在集合里，方便管理
         oViews=new ArrayList<ImageView>();
@@ -66,7 +66,7 @@ public class Lmenu extends RelativeLayout implements View.OnClickListener {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
 
-        mHiddenViewMeasuredHeight = (int) (w*1/12);
+        mHiddenViewMeasuredHeight = w*1/12;
         Anim(mHiddenViewMeasuredHeight,-mHiddenViewMeasuredHeight ,0.5f, 1f, 0f, 90f);
     }
 
@@ -75,7 +75,7 @@ public class Lmenu extends RelativeLayout implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.center:
                 if (mFlag) {
-                    Anim(-mHiddenViewMeasuredHeight,mHiddenViewMeasuredHeight, 1f, 0.5f, 90f, 0f);;
+                    Anim(-mHiddenViewMeasuredHeight,mHiddenViewMeasuredHeight, 1f, 0.5f, 90f, 0f);
                     mFlag=false;
                 }else {
                     Anim(mHiddenViewMeasuredHeight, -mHiddenViewMeasuredHeight,0.5f, 1f, 0f, 90f);

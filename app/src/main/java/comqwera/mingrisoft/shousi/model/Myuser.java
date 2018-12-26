@@ -86,7 +86,7 @@ public class Myuser {                 //用户信息实体类
         this.u_password = u_password;
     }
 
-    public void setU_phone(String phone) {
+    public void setU_phone(String u_phone) {
         this.u_phone = u_phone;
     }
 

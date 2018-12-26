@@ -65,8 +65,8 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
         private String cai;
         public viewhodler(@NonNull View itemView) {
             super(itemView);
-            imageView = (ImageView) itemView.findViewById(R.id.iv_home);
-            textView = (TextView) itemView.findViewById(R.id.tv);
+            imageView = itemView.findViewById(R.id.iv_home);
+            textView = itemView.findViewById(R.id.tv);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

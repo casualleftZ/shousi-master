@@ -86,12 +86,12 @@ public class GoodsAdapter extends BaseAdapter implements StickyListHeadersAdapte
         private TextView ratingBar;
 
         public ItemViewHolder(View itemView) {
-            name = (TextView) itemView.findViewById(R.id.tvName);
-            price = (TextView) itemView.findViewById(R.id.tvPrice);
-            tvCount = (TextView) itemView.findViewById(R.id.count);
-            tvMinus = (TextView) itemView.findViewById(R.id.tvMinus);
-            tvAdd = (TextView) itemView.findViewById(R.id.tvAdd);
-            ratingBar = (TextView) itemView.findViewById(R.id.ratingBar);
+            name = itemView.findViewById(R.id.tvName);
+            price = itemView.findViewById(R.id.tvPrice);
+            tvCount = itemView.findViewById(R.id.count);
+            tvMinus = itemView.findViewById(R.id.tvMinus);
+            tvAdd = itemView.findViewById(R.id.tvAdd);
+            ratingBar = itemView.findViewById(R.id.ratingBar);
             tvMinus.setOnClickListener(this);
             tvAdd.setOnClickListener(this);
         }

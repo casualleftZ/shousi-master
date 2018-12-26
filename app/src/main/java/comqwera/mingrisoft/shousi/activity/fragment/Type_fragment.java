@@ -30,7 +30,7 @@ public class Type_fragment extends Basefragment  {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Lmenu menu = (Lmenu)getActivity().findViewById(R.id.lmenu);
+        Lmenu menu = getActivity().findViewById(R.id.lmenu);
         menu.setonMenuClickListener(new Lmenu.onMenuClickListener() {
             @Override
             public void hot() {

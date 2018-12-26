@@ -47,8 +47,8 @@ public class User_fragment extends Basefragment{
     public View initview() {
         View view = View.inflate (mcontext, R.layout.user_activity, null);
 
-        tuichudenglu = (Button) view.findViewById (R.id.tuichudenglu);
-        daifukuang_picture=(ImageView)view.findViewById(R.id.daifukuang_picture) ;
+        tuichudenglu = view.findViewById (R.id.tuichudenglu);
+        daifukuang_picture= view.findViewById(R.id.daifukuang_picture);
         daifukuang_picture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +66,7 @@ public class User_fragment extends Basefragment{
                 getActivity().finish();
             }
         });//退出按钮
-        xiugaixinxi=(Button)view.findViewById(R.id.xiugaixinxi);
+        xiugaixinxi= view.findViewById(R.id.xiugaixinxi);
         xiugaixinxi.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -75,7 +75,7 @@ public class User_fragment extends Basefragment{
                 getActivity().finish();
             }
         });//修改信息按钮
-        img_show=(ImageView)view.findViewById(R.id.wode_picture);
+        img_show= view.findViewById(R.id.wode_picture);
 
         img_show.setOnClickListener(new View.OnClickListener() {
 

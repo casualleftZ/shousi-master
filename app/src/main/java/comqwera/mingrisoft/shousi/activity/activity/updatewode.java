@@ -48,18 +48,18 @@ public class updatewode extends Activity {
         Address1=myuserDAO.find2(u_id).getU_adress();
         Zhiwen1=login1DAO.find(1).getZhiwen();
 //获取编辑文本框
-        nickname=(EditText)findViewById(R.id.usernickname);
-        mima=(EditText)findViewById(R.id.usermima);
-        phone=(EditText)findViewById(R.id.userphone);
-        Address=(EditText)findViewById(R.id.useraddress);
-        Zhiwen=(EditText)findViewById(R.id.userzhiwen);
+        nickname= findViewById(R.id.usernickname);
+        mima= findViewById(R.id.usermima);
+        phone= findViewById(R.id.userphone);
+        Address= findViewById(R.id.useraddress);
+        Zhiwen= findViewById(R.id.userzhiwen);
 //获取数据库文字显示
         nickname.setText(nickname1);
         mima.setText(mima1);
         phone.setText(phone1);
         Address.setText(Address1);
         Zhiwen.setText(Integer.toString(Zhiwen1));
-        xiugaixinxi=(Button)findViewById(R.id.xiugaiuser);
+        xiugaixinxi= findViewById(R.id.xiugaiuser);
         xiugaixinxi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,7 +98,7 @@ public class updatewode extends Activity {
                 updatewode.this.finish();
             }
         });
-        fanhuiuser=(Button)findViewById(R.id.fanhuiuser);
+        fanhuiuser= findViewById(R.id.fanhuiuser);
         fanhuiuser.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {

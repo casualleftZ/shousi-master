@@ -33,7 +33,7 @@ public class Home_fragment extends Basefragment {
     @Override
     public View initview() {//搜索功能跳转
         View view = View.inflate(mcontext, R.layout.home_fragment, null);
-        tv_seach=(TextView)view.findViewById(R.id.tv_seach);
+        tv_seach= view.findViewById(R.id.tv_seach);
         tv_seach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,7 +89,7 @@ public class Home_fragment extends Basefragment {
 
     private void initRecyclerView() {
         //获取RecyclerView
-        recyclerView = (RecyclerView) getActivity().findViewById(R.id.re_home);
+        recyclerView = getActivity().findViewById(R.id.re_home);
         //创建adapter
         recyclerviewAdapter = new RecyclerviewAdapter(getActivity(), shousiList);
         //给RecyclerView设置adapter

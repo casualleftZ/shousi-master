@@ -23,10 +23,10 @@ public class FindAdapter extends ArrayAdapter<Thing> {
     public View getView(int position, View convertView, ViewGroup parent){
         Thing thing=getItem(position);
         View view=LayoutInflater.from(getContext()).inflate(resourceId,parent,false);
-        ImageView img=(ImageView)view.findViewById(R.id.img);
-        TextView tvName=(TextView)view.findViewById(R.id.tvName);
-        TextView ratingBar=(TextView)view.findViewById(R.id.ratingBar);
-        TextView tvPrice=(TextView)view.findViewById(R.id.tvName);
+        ImageView img= view.findViewById(R.id.img);
+        TextView tvName= view.findViewById(R.id.tvName);
+        TextView ratingBar= view.findViewById(R.id.ratingBar);
+        TextView tvPrice= view.findViewById(R.id.tvName);
         return view;
     }
 }
