@@ -29,7 +29,7 @@ public class LauncherActivity extends Activity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    if(login1DAO.find(1).getZt()==2){//在主线程中执行
+                    if(login1DAO.getMaxId()==1&&login1DAO.find(1).getZt()==2){//在主线程中执行
                     startMainActivity2();}
                     else{
                         startMainActivity();

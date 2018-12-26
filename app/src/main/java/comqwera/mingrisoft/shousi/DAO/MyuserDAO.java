@@ -9,6 +9,7 @@ import java.util.List;
 
 
 import comqwera.mingrisoft.shousi.model.Myuser;
+import comqwera.mingrisoft.shousi.model.Shopthing;
 
 
 public class MyuserDAO {
@@ -104,6 +105,31 @@ public Myuser find(String phone)
                     cursor.getString (cursor.getColumnIndex ("u_headportrait")),
                     cursor.getString (cursor.getColumnIndex ("u_address")),
                     cursor.getString(cursor.getColumnIndex("u_phone2")));
+        }
+        return null;     //如果没有返回null
+    }
+    public Myuser findall(int u_id)
+    {
+        int i=0;
+        db=helper.getWritableDatabase ();//初始化SQLiteDatabase对象
+        Cursor cursor=db.rawQuery ("select u_id,u_loginid,u_nickname,u_password,u_phone,"+
+                        " u_sex,u_headportrait,u_vip,u_address,u_phone2 from Myuser ",
+                null);
+        Myuser myuser[]=new Myuser[getMaxId()];
+        while(cursor.moveToNext ())
+        {
+            //将遍历到的收入信息存储到 Myuser类中
+            myuser[i]= new Myuser(cursor.getInt (cursor.getColumnIndex ("u_id")),
+                    cursor.getInt (cursor.getColumnIndex ("u_loginid")),
+                    cursor.getString (cursor.getColumnIndex ("u_nickname")),
+                    cursor.getString (cursor.getColumnIndex ("u_password")),
+                    cursor.getString (cursor.getColumnIndex ("u_phone")),
+                    cursor.getString (cursor.getColumnIndex ("u_sex")),
+                    cursor.getString (cursor.getColumnIndex ("u_vip")),
+                    cursor.getString (cursor.getColumnIndex ("u_headportrait")),
+                    cursor.getString (cursor.getColumnIndex ("u_address")),
+                    cursor.getString(cursor.getColumnIndex("u_phone2")));
+            i++;
         }
         return null;     //如果没有返回null
     }
