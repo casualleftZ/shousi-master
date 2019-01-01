@@ -44,42 +44,22 @@ public class ShopthingDAO {
                                 shopthing.getT_money(),shopthing.getT_money_num()
                         });
     }
-    //查找全部
-    public Shopthing findall()
-    {
-        int i=0;
-        db=helper.getWritableDatabase ();//初始化SQLiteDatabase对象
 
-        Cursor cursor=db.rawQuery ("select t_id,f_name,t_num,t_money,t_money_number from shopthing",null);
-        Shopthing shopthing[]=new Shopthing[getMaxId()];
-        while (cursor.moveToNext ())
-        {
-
-            //将遍历到的购物车单存储到 Myuser类中
-                      shopthing[i]=new  Shopthing(cursor.getInt (cursor.getColumnIndex ("t_id")),
-                    cursor.getString (cursor.getColumnIndex ("f_name")),
-                    cursor.getInt (cursor.getColumnIndex ("T_num")),
-                    cursor.getFloat (cursor.getColumnIndex ("t_money")),
-                    cursor.getFloat (cursor.getColumnIndex ("t_money_number")));
-                      i++;
-        }
-        return null;     //如果没有返回null
-    }
     //通过f_name查找
-    public Shopping_cart find(int id)
+    public Shopthing find(String i)
     {
         db=helper.getWritableDatabase ();//初始化SQLiteDatabase对象
-        Cursor cursor=db.rawQuery ("select s_id,f_id,u_id,s_num,s_time where u_id=?",
+        Cursor cursor=db.rawQuery ("select t_id,f_name,t_num,t_money,t_money_number where f_name=?",
                 new String[]
-                        {String.valueOf (id)});
+                        {String.valueOf (i)});
         if (cursor.moveToNext ())
         {
             //将遍历到的购物车单存储到 Myuser类中
-            return new Shopping_cart(cursor.getInt (cursor.getColumnIndex ("u_id")),
-                    cursor.getInt (cursor.getColumnIndex ("f_id")),
-                    cursor.getInt (cursor.getColumnIndex ("u_id")),
-                    cursor.getInt (cursor.getColumnIndex ("s_num")),
-                    cursor.getString (cursor.getColumnIndex ("s_time")));
+            return new Shopthing(cursor.getInt (cursor.getColumnIndex ("t_id")),
+            cursor.getString (cursor.getColumnIndex ("f_name")),
+                    cursor.getInt (cursor.getColumnIndex ("t_num")),
+                    cursor.getFloat (cursor.getColumnIndex ("t_money")),
+                    cursor.getFloat (cursor.getColumnIndex ("t_money_number")));
         }
         return null;     //如果没有返回null
     }

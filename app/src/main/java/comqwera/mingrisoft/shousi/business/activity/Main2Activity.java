@@ -7,10 +7,8 @@ import android.view.View;
 import android.widget.*;
 import comqwera.mingrisoft.shousi.DAO.Login1DAO;
 import comqwera.mingrisoft.shousi.activity.activity.Login;
-import comqwera.mingrisoft.shousi.activity.activity.MainActivity;
 import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.business.Adapter.PictureAdapter;
-import comqwera.mingrisoft.shousi.model.Login1;
 
 public class Main2Activity extends AppCompatActivity {
      GridView gridView;

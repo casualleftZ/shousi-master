@@ -8,11 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.DAO.MyuserDAO;
-
-
+import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.model.Myuser;
 
 public class Zhuce extends Activity {
@@ -79,7 +76,7 @@ public class Zhuce extends Activity {
                     return;
                 }
                 else {
-                    Myuser myuser=new Myuser (myuserDAO.getMaxId ()+1,myuserDAO.getMaxId ()+1,username,
+                    Myuser myuser=new Myuser(myuserDAO.getMaxId ()+1,myuserDAO.getMaxId ()+1,username,
                             pwd,phonenumber,null,null,null,null,null);
                     myuserDAO.add (myuser);
                     Toast.makeText (Zhuce.this,"注册成功",Toast.LENGTH_SHORT).show ();

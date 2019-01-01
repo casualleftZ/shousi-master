@@ -44,13 +44,13 @@ public void add(Myuser myuser){
 public void update(Myuser myuser){
     db=helper.getWritableDatabase ();//初始化SQLiteDatabase对象
     //执行修改收入信息操作
-    db.execSQL ("update myuser set u_id=?,u_loginid=?,u_nickname=?,u_password=?,u_phone=?," +
-            "u_sex=?,u_headportrait=?,u_vip=?,u_address=?,u_phone2=?",
+    db.execSQL ("update myuser set u_loginid=?,u_nickname=?,u_password=?,u_phone=?," +
+            "u_sex=?,u_headportrait=?,u_vip=?,u_address=?,u_phone2=? where u_id=?",
     new Object[]
     {
-        myuser.getU_id(),myuser.getU_loinid(),myuser.getU_nickname(), myuser.getU_password (),
+       myuser.getU_loinid(),myuser.getU_nickname(), myuser.getU_password (),
                 myuser.getU_phone (),myuser.getU_sex (),myuser.getU_headportrait (),
-             myuser.getU_vip (),myuser.getU_adress (),myuser.getU_phone2()
+             myuser.getU_vip (),myuser.getU_adress (),myuser.getU_phone2(), myuser.getU_id()
     });
 }
 /**
@@ -82,6 +82,40 @@ public Myuser find(String phone)
                     cursor.getString(cursor.getColumnIndex("u_phone2")));
         }
         return null;     //如果没有返回null
+    }
+    public Myuser[] findAllByCondition(String condition, String value){
+
+        String sql;
+        Cursor cursor;
+        if(condition.equals("all")){
+            sql = "select * from myuser";
+            cursor = db.rawQuery(sql, null);
+        }else {
+            sql = "select * from myuser where " + condition + " = ?";
+            cursor = db.rawQuery(sql, new String[]{value});
+        }
+        if(!cursor.moveToNext()){
+            return null;
+        }else
+            cursor.move(-1);
+        int i = 0;
+        Myuser myuser[] = new Myuser[cursor.getCount()];
+        while (cursor.moveToNext()){
+            myuser[i] = new Myuser(
+                    cursor.getInt (cursor.getColumnIndex ("u_id")),
+                    cursor.getInt (cursor.getColumnIndex ("u_loginid")),
+                    cursor.getString (cursor.getColumnIndex ("u_nickname")),
+                    cursor.getString (cursor.getColumnIndex ("u_password")),
+                    cursor.getString (cursor.getColumnIndex ("u_phone")),
+                    cursor.getString (cursor.getColumnIndex ("u_sex")),
+                    cursor.getString (cursor.getColumnIndex ("u_vip")),
+                    cursor.getString (cursor.getColumnIndex ("u_headportrait")),
+                    cursor.getString (cursor.getColumnIndex ("u_address")),
+                    cursor.getString(cursor.getColumnIndex("u_phone2")));
+                    //cursor.getColumnCount()
+            i++;
+        }
+        return myuser;
     }
 
     public Myuser find2(int u_id)

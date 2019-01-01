@@ -1,23 +1,15 @@
 package comqwera.mingrisoft.shousi.activity.activity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.TextViewCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.DAO.Login1DAO;
 import comqwera.mingrisoft.shousi.DAO.OnlineorderDAO;
-import comqwera.mingrisoft.shousi.activity.fragment.*;
+import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.model.Login1;
-import comqwera.mingrisoft.shousi.model.Onlineorder;
-
-import java.util.ArrayList;
 
 public class Orderfinish extends Activity {
     private String Time;     //时间

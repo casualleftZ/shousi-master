@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.widget.*;
 
 import comqwera.mingrisoft.shousi.activity.View.Lmenu;
 import comqwera.mingrisoft.shousi.activity.activity.R;

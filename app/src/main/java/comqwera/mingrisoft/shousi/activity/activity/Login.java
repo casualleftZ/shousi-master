@@ -4,16 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Toast;
-
+import android.widget.*;
 import comqwera.mingrisoft.shousi.DAO.Login1DAO;
 import comqwera.mingrisoft.shousi.DAO.MyuserDAO;
 import comqwera.mingrisoft.shousi.DAO.RestaurantDAO;
-
 import comqwera.mingrisoft.shousi.business.activity.Main2Activity;
 import comqwera.mingrisoft.shousi.model.Login1;
 
@@ -67,7 +61,7 @@ public class Login extends Activity {
                 Intent intent = new Intent();
                 switch (spinner1.getSelectedItemPosition()) {
                     case 0:
-                        MyuserDAO myuserDAO = new MyuserDAO (Login.this);
+                        MyuserDAO myuserDAO = new MyuserDAO(Login.this);
                         if (myuserDAO.find (zhanghao) == null) {
                             Toast.makeText (Login.this, "该账号没被注册", Toast.LENGTH_SHORT).show ();
                             return;
@@ -98,7 +92,7 @@ public class Login extends Activity {
                         }
                         break;
                     case 1:
-                        RestaurantDAO restaurantDAO = new RestaurantDAO (Login.this);
+                        RestaurantDAO restaurantDAO = new RestaurantDAO(Login.this);
                         if (restaurantDAO.find (zhanghao) == null) {
                             Toast.makeText (Login.this, "该商家账号未注册", Toast.LENGTH_SHORT).show ();
                             return;
