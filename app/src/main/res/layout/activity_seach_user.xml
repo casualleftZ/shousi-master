@@ -6,6 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
+        android:orientation="vertical"
         tools:context="comqwera.mingrisoft.shousi.business.activity.SeachUserActivity">
     <EditText
             android:id="@+id/bus_tv_seach"

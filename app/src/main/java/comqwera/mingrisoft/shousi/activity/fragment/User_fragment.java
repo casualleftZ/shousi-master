@@ -15,23 +15,19 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-
+import android.widget.*;
 
 
 import comqwera.mingrisoft.shousi.DAO.Login1DAO;
-import comqwera.mingrisoft.shousi.DAO.MyuserDAO;
-import comqwera.mingrisoft.shousi.activity.Adapter.UserAdapter;
 import comqwera.mingrisoft.shousi.activity.activity.*;
 
 import comqwera.mingrisoft.shousi.model.User;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class User_fragment extends Basefragment{
@@ -42,9 +38,14 @@ public class User_fragment extends Basefragment{
     private int u_id;
     private ImageView daifukuang_picture;
     private ImageView lishidingdan_picture;
+    private ListView list_view;
+    private int[] imageId = new int[]{R.mipmap.mymessage,R.mipmap.dingwei,R.mipmap.customer ,R.mipmap.aboutus};
+    private String[] wenzi = new String[]{"我的信息","地址管理","联系商家","关于我们"};
+    private int[] imageId1 = new int[]{R.mipmap.more,R.mipmap.more,R.mipmap.more,R.mipmap.more};
+
     public View initview() {
         View view = View.inflate (mcontext, R.layout.user_activity, null);
-
+        list_view=(ListView)view.findViewById(R.id.list_view) ;
         tuichudenglu = view.findViewById (R.id.tuichudenglu);
         daifukuang_picture= view.findViewById(R.id.daifukuang_picture);
         lishidingdan_picture=view.findViewById(R.id.lishidingdan_picture);
@@ -72,15 +73,9 @@ public class User_fragment extends Basefragment{
                 getActivity().finish();
             }
         });//退出按钮
-        xiugaixinxi= view.findViewById(R.id.xiugaixinxi);
-        xiugaixinxi.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent wodexinxi=new Intent(getActivity(),updatewode.class);
-                startActivity(wodexinxi);
-                getActivity().finish();
-            }
-        });//修改信息按钮
+
+
+
         img_show= view.findViewById(R.id.wode_picture);
 
         img_show.setOnClickListener(new View.OnClickListener() {
@@ -88,47 +83,54 @@ public class User_fragment extends Basefragment{
             @Override
 
             public void onClick(View v) {
-
                 goToast();
-
             }
-
         });
+        list();
 
-        initUser ();//初始化信息数据
-        UserAdapter adapter = new UserAdapter(getActivity (), R.layout.user_xinxi, userlist);
-        ListView listView = view.findViewById (R.id.list_view);
-        listView.setAdapter (adapter);
         return view;
     }
-    private String username;
-    private String address1;
-    private String phone1;
-    private String _id;
-    private String zhiwen1;
-    private void initUser(){//信息显示
 
-        Login1DAO login1DAO=new Login1DAO(getActivity());   //建立login1对象
-
-        u_id=login1DAO.find(1).getU_id();      //通过login1dao查找u_id
-        zhiwen1=Integer.toString(login1DAO.find(1).getZhiwen());
-        _id= Integer.toString (u_id);
-        MyuserDAO myuserDAO=new MyuserDAO(getActivity());
-        username=myuserDAO.find2(u_id).getU_nickname();
-        address1=myuserDAO.find2(u_id).getU_adress();
-        phone1=myuserDAO.find2(u_id).getU_phone2();
-        User id=new User ("用户id:",_id);
-        userlist.add (id);
-        User nicheng=new User ("昵称:" ,username);
-        userlist.add (nicheng);
-        User zhiwen=new User ("电话号码:",phone1);
-        userlist.add (zhiwen);
-        User phone=new User ("指纹识别:",zhiwen1);
-        userlist.add (phone);
-        User address=new User ("地址:",address1);
-        userlist.add (address);
-     //显示我的信息
+    public void list(){
+        List<Map<String,Object>> listItems = new ArrayList<>();
+        for (int i = 0; i < imageId.length; i++ ){
+            Map<String,Object> map = new HashMap<>();
+            map.put("image",imageId[i]);
+            map.put("text",wenzi[i]);
+            map.put("image1",imageId1[i]);
+            listItems.add(map);
+        }
+        SimpleAdapter adapter = new SimpleAdapter(
+                getActivity(),
+                listItems,
+                R.layout.my_user,
+                new  String[]{"image","text","image1"},
+                new int[] {R.id.image, R.id.text, R.id.image1}
+        );
+        list_view.setAdapter(adapter);
+        //设置listview点击事件
+        list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //position 点击的Item位置，从0开始算
+                // Intent intent=new Intent();
+                // intent.putExtra("xx","");//传递给下一个Activity的值
+                //  startActivity(intent);//启动Activity
+                if (position == 0){
+                    startActivity(new Intent(getActivity(),MymessageActivity.class));}
+                if (position == 1){
+                    startActivity(new Intent(getActivity(),MyadressActivity.class));}
+                if (position == 2){
+                    startActivity(new Intent(getActivity(),MymessageActivity.class));
+                }
+                if (position == 3){
+                    startActivity(new Intent(getActivity(),MymessageActivity.class));
+                }
+            }
+        });
     }
+
+
 
     public void initDate(){
         super.initDate();

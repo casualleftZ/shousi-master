@@ -9,29 +9,52 @@
 >
 
     <LinearLayout
-            android:layout_marginTop="10dp"
-        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bluebiankuang"
         android:orientation="vertical"
+        android:gravity="center"
         android:id="@+id/wode_login">
 
         <comqwera.mingrisoft.shousi.activity.View.RoundImageView
             android:id="@+id/wode_picture"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_gravity="center"
             android:layout_marginTop="5dp"
-            android:src="@mipmap/wode" />
-
+            android:src="@mipmap/wode"
+            android:gravity="center"/>
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/wode_picture"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:text="我的" />
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/user_line"
+                android:textSize="17sp"
+                android:textColor="#000000"
+                android:text="左左"/>
+            <ImageView
+                android:id="@+id/user_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/user_line"/>
+
+
+            <TextView
+                android:id="@+id/user_val"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:textColor="#000000"
+                android:text="15179152606"
+                android:layout_toRightOf="@id/user_line"/>
+    </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
@@ -88,32 +111,18 @@
             android:textColor="#000000"/>
     </LinearLayout>
     </LinearLayout>
+
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:id="@+id/list_view"></ListView>
-    <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-
-    >
-        <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/xiugaixinxi"
-                android:text="修改信息"
-                android:background="@drawable/loginbutton"
-                android:layout_gravity="center"
-        />
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tuichudenglu"
             android:background="@drawable/loginbutton2"
             android:text="退出登录"
-            android:layout_gravity="center"
-            android:layout_below="@id/xiugaixinxi"
-    />
-    </RelativeLayout>
+            android:layout_gravity="center"/>
+
+
 </LinearLayout>
