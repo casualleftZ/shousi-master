@@ -3,18 +3,15 @@ package comqwera.mingrisoft.shousi.activity.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.activity.activity.GoodsActivity;
+import comqwera.mingrisoft.shousi.activity.activity.R;
 
-import comqwera.mingrisoft.shousi.activity.fragment.Home_fragment;
 import comqwera.mingrisoft.shousi.model.Shousi;
 
 import java.util.ArrayList;

@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.*;
 import android.widget.BaseAdapter;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 
@@ -80,38 +79,38 @@ public class GoodsAdapter extends BaseAdapter implements StickyListHeadersAdapte
         return convertView;
     }
 
-    class ItemViewHolder implements View.OnClickListener{
-        private TextView name,price,tvAdd,tvMinus,tvCount;
-        private GoodsItem item;
-        private TextView ratingBar;
+        class ItemViewHolder implements View.OnClickListener{
+            private TextView name,price,tvAdd,tvMinus,tvCount;
+            private GoodsItem item;
+            private TextView ratingBar;
 
-        public ItemViewHolder(View itemView) {
-            name = itemView.findViewById(R.id.tvName);
-            price = itemView.findViewById(R.id.tvPrice);
-            tvCount = itemView.findViewById(R.id.count);
-            tvMinus = itemView.findViewById(R.id.tvMinus);
-            tvAdd = itemView.findViewById(R.id.tvAdd);
-            ratingBar = itemView.findViewById(R.id.ratingBar);
-            tvMinus.setOnClickListener(this);
-            tvAdd.setOnClickListener(this);
-        }
-
-        public void bindData(GoodsItem item){
-            this.item = item;
-            name.setText(item.name);
-            ratingBar.setText(item.rating);
-            //ratingBar.setRating(item.rating);
-            item.count = mContext.getSelectedItemCountById(item.id);
-            tvCount.setText(String.valueOf(item.count));
-            price.setText(nf.format(item.price));
-            if(item.count<1){
-                tvCount.setVisibility(View.GONE);
-                tvMinus.setVisibility(View.GONE);
-            }else{
-                tvCount.setVisibility(View.VISIBLE);
-                tvMinus.setVisibility(View.VISIBLE);
+            public ItemViewHolder(View itemView) {
+                name = itemView.findViewById(R.id.tvName);
+                price = itemView.findViewById(R.id.tvPrice);
+                tvCount = itemView.findViewById(R.id.count);
+                tvMinus = itemView.findViewById(R.id.tvMinus);
+                tvAdd = itemView.findViewById(R.id.tvAdd);
+                ratingBar = itemView.findViewById(R.id.ratingBar);
+                tvMinus.setOnClickListener(this);
+                tvAdd.setOnClickListener(this);
             }
-        }
+
+            public void bindData(GoodsItem item){
+                this.item = item;
+                name.setText(item.name);
+                ratingBar.setText(item.rating);
+                //ratingBar.setRating(item.rating);
+                item.count = mContext.getSelectedItemCountById(item.id);
+                tvCount.setText(String.valueOf(item.count));
+                price.setText(nf.format(item.price));
+                if(item.count<1){
+                    tvCount.setVisibility(View.GONE);
+                    tvMinus.setVisibility(View.GONE);
+                }else{
+                    tvCount.setVisibility(View.VISIBLE);
+                    tvMinus.setVisibility(View.VISIBLE);
+                }
+            }
 
         @Override
         public void onClick(View v) {

@@ -48,8 +48,8 @@ public class InquiryuserActivity extends AppCompatActivity {
     private void initInquiryuser(){
         MyuserDAO myuserDAO=new MyuserDAO(InquiryuserActivity.this);
         int n;
-        Inquiryuser biaoti=new Inquiryuser("用户id","昵称","注册手机","预留手机号码","地址");
-        inquiryuserList.add(biaoti);
+//        Inquiryuser biaoti=new Inquiryuser("用户id","昵称","注册手机","预留手机号码","地址");
+//        inquiryuserList.add(biaoti);
         for(int i=0;i<myuserDAO.getMaxId();i++){
             n=i+1;
             u_id=Integer.toString(myuserDAO.find2(n).getU_id());

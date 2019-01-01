@@ -1,34 +1,21 @@
 package comqwera.mingrisoft.shousi.activity.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-
-import android.support.v4.view.ViewPager;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
-import java.lang.invoke.ConstantCallSite;
-import java.util.ArrayList;
-
-
 import android.widget.Toast;
+import comqwera.mingrisoft.shousi.DAO.Login1DAO;
 import comqwera.mingrisoft.shousi.DAO.RestaurantDAO;
 import comqwera.mingrisoft.shousi.activity.activity.R;
-import comqwera.mingrisoft.shousi.DAO.Login1DAO;
-import comqwera.mingrisoft.shousi.activity.fragment.Basefragment;
-import comqwera.mingrisoft.shousi.activity.fragment.Home_fragment;
-import comqwera.mingrisoft.shousi.activity.fragment.Order_fragment;
-import comqwera.mingrisoft.shousi.activity.fragment.Type_fragment;
-import comqwera.mingrisoft.shousi.activity.fragment.User_fragment;
+import comqwera.mingrisoft.shousi.activity.fragment.*;
 import comqwera.mingrisoft.shousi.model.Restaurant;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends FragmentActivity {

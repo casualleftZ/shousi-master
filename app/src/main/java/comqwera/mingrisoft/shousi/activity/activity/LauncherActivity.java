@@ -8,10 +8,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
-import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.DAO.Login1DAO;
-import comqwera.mingrisoft.shousi.DAO.MyuserDAO;
+import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.business.activity.Main2Activity;
 
 

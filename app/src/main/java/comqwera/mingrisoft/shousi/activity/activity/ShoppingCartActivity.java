@@ -38,6 +38,9 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 public class ShoppingCartActivity extends Activity implements View.OnClickListener{
 
+    public static ShoppingCartActivity mshoppingCartActivity;
+
+
     private ImageView imgCart;
     private ViewGroup anim_mask_layout;
     private RecyclerView rvType,rvSelected;
@@ -60,6 +63,7 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mshoppingCartActivity=this;
         setContentView(R.layout.activity_shopping_cart);
         nf = NumberFormat.getCurrencyInstance();
         nf.setMaximumFractionDigits(2);

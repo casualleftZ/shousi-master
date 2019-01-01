@@ -1,16 +1,12 @@
 package comqwera.mingrisoft.shousi.activity.activity;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.*;
 import comqwera.mingrisoft.shousi.DAO.FoodDAO;
 import comqwera.mingrisoft.shousi.activity.activity.R;
-import comqwera.mingrisoft.shousi.model.Food;
-
-import java.io.File;
 
 public class GoodsActivity extends AppCompatActivity {
     private ImageButton ib_fanhui;
