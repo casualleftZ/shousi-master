@@ -1,18 +1,16 @@
 package comqwera.mingrisoft.shousi.business.activity;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 import comqwera.mingrisoft.shousi.DAO.Login1DAO;
 import comqwera.mingrisoft.shousi.activity.activity.Login;
-import comqwera.mingrisoft.shousi.activity.activity.MainActivity;
 import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.business.Adapter.PictureAdapter;
-import comqwera.mingrisoft.shousi.model.Login1;
 
-public class Main2Activity extends AppCompatActivity {
+public class Main2Activity extends Activity {
      GridView gridView;
      String[] titles=new String[]{"用户信息","用户预约","用户订单","我的收入",
      "菜谱名单","店家信息设置","退出"};
@@ -22,7 +20,7 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main2);
+        setContentView(R.layout.activity_main);
         gridView= findViewById(R.id.GridView1);
         PictureAdapter adapter=new PictureAdapter(titles,images,this);//创建picture对象
         gridView.setAdapter(adapter);                      //为GridView设置数据源
@@ -36,6 +34,15 @@ public class Main2Activity extends AppCompatActivity {
                         intent=new Intent(Main2Activity.this,InquiryuserActivity.class);
                         startActivity(intent);
                         break;
+                    case 1:
+                        intent=new Intent(Main2Activity.this,UserbookActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        intent=new Intent(Main2Activity.this,UserorderActivity.class);
+                        startActivity(intent);
+                        break;
+
                     case 6:
                         Login1DAO login1DAO=new Login1DAO(Main2Activity.this);
                         login1DAO.detele(1);

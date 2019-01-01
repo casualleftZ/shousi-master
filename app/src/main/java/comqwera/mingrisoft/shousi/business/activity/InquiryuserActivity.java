@@ -1,7 +1,10 @@
 package comqwera.mingrisoft.shousi.business.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 import comqwera.mingrisoft.shousi.DAO.MyuserDAO;
 import comqwera.mingrisoft.shousi.activity.activity.R;
@@ -18,11 +21,24 @@ public class InquiryuserActivity extends AppCompatActivity {
     private String phone1;
     private String phone2;
     private String address;
+    private EditText bus_seach;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inquiryuser);
+
+
+        bus_seach=(EditText)findViewById(R.id.bus_seach);
+        bus_seach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(InquiryuserActivity.this,SeachUserActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         initInquiryuser();   //初始化list数据
         InquiryuserApdater adapter=new InquiryuserApdater(InquiryuserActivity.this,R.layout.inquiruser_item,
                 inquiryuserList);

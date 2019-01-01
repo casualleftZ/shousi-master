@@ -8,7 +8,7 @@ public class Picture {
     public Picture(){
         super();
     }
-    public Picture(String title,int ImageId)
+    public Picture(String title,int imageId)
     {
         super();
         this.title=title;

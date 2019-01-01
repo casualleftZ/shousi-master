@@ -43,6 +43,12 @@
         </activity>
         <activity android:name=".MyorderActivity">
         </activity>
+        <activity android:name="comqwera.mingrisoft.shousi.business.activity.SeachUserActivity">
+        </activity>
+        <activity android:name="comqwera.mingrisoft.shousi.business.activity.UserbookActivity">
+        </activity>
+        <activity android:name="comqwera.mingrisoft.shousi.business.activity.UserorderActivity">
+        </activity>
     </application>
 
 </manifest>
