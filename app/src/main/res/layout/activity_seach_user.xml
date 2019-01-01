@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ListView
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,5 +7,20 @@
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         tools:context="comqwera.mingrisoft.shousi.business.activity.SeachUserActivity">
+    <EditText
+            android:id="@+id/bus_tv_seach"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/serach"
+            android:drawableLeft="@mipmap/sousuo"
+            android:hint="搜索用户信息"
+            android:padding="5dp"
+            android:textSize="13sp"
+            android:drawablePadding="10dp"/>
+    <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></ListView>
 
-</ListView>
+</LinearLayout>

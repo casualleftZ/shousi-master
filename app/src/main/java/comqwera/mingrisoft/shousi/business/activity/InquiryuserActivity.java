@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import comqwera.mingrisoft.shousi.DAO.MyuserDAO;
 import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.business.Adapter.InquiryuserApdater;
@@ -21,7 +22,7 @@ public class InquiryuserActivity extends AppCompatActivity {
     private String phone1;
     private String phone2;
     private String address;
-    private EditText bus_seach;
+    private TextView bus_tv_seach;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +30,8 @@ public class InquiryuserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inquiryuser);
 
 
-        bus_seach=(EditText)findViewById(R.id.bus_seach);
-        bus_seach.setOnClickListener(new View.OnClickListener() {
+        bus_tv_seach=(TextView)findViewById(R.id.bus_tv_seach);
+        bus_tv_seach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(InquiryuserActivity.this,SeachUserActivity.class);
