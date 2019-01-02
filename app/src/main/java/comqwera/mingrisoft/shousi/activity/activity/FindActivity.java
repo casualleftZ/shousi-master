@@ -16,7 +16,7 @@ import java.util.List;
 
 public class FindActivity extends Activity {
     public static FindActivity mfindActivity;
-    private ImageView find_food_button;
+    private TextView find_tv_seach;
     private Thread thread;
     private EditText tv_seach2;
     private String content;
@@ -29,8 +29,8 @@ public class FindActivity extends Activity {
         ListView listView=(ListView)findViewById(R.id.list_view2);
         listView.setAdapter(adapter);
         mfindActivity=this; //非Activity跳转方法
-        find_food_button=(ImageView)findViewById(R.id.find_food_button);
-        find_food_button.setOnClickListener(new View.OnClickListener() {
+        find_tv_seach=(TextView)findViewById(R.id.find_tv_seach) ;
+        find_tv_seach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 initFoods();

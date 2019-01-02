@@ -9,14 +9,79 @@
         tools:context="comqwera.mingrisoft.shousi.activity.activity.CallusActivity">
 
     <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:src="@mipmap/appsgousijia"/>
+            android:layout_marginTop="20dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/appsgousijia"
+            android:layout_gravity="center"/>
+
+
+    <TextView
+            android:layout_marginLeft="55dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="寿司家是一家以寿司、甜品、"
+            android:textSize="18sp"
+            android:textColor="#000000"/>
+    <TextView
+            android:layout_marginLeft="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:text="饮品、简餐等为主打产品的品牌老店，是专注寿司艺术的品牌老店。"/>
+
+    <TextView
+            android:layout_marginLeft="55dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="在这里你可以品尝到上百种寿"
+            android:textSize="18sp"
+            android:textColor="#000000"/>
+    <TextView
+            android:layout_marginLeft="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:text="司，还有多种甜品小吃任你挑选。"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:text="寿司家分店一：江西师范大学"/>
+    <TextView
+            android:id="@+id/tv_call1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@mipmap/call"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:text="15179152606"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="123"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:text="寿司家分店二：南昌大学"/>
+    <TextView
+            android:id="@+id/tv_call2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@mipmap/call"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:text="15179152606"/>
+
 
 
 </LinearLayout>

@@ -124,7 +124,7 @@ public class User_fragment extends Basefragment{
                     startActivity(new Intent(getActivity(),CallusActivity.class));
                 }
                 if (position == 3){
-                    startActivity(new Intent(getActivity(),MymessageActivity.class));
+                    startActivity(new Intent(getActivity(),AboutusActivity.class));
                 }
             }
         });
