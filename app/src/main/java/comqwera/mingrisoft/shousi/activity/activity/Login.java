@@ -122,7 +122,7 @@ public class Login extends Activity {
                         }
                         break;
                     default:
-                        Toast.makeText (Login.this, "玩你妈逼", Toast.LENGTH_SHORT).show ();
+                        Toast.makeText (Login.this, "系统故障", Toast.LENGTH_SHORT).show ();
                         break;
 
                 }
