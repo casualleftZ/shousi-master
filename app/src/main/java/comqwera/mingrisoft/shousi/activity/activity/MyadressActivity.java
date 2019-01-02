@@ -32,6 +32,7 @@ public class MyadressActivity extends AppCompatActivity {
         Login1DAO login1DAO=new Login1DAO(MyadressActivity.this);
         u_id=login1DAO.find(1).getU_id();
         UseraddressDAO useaddressDAO=new UseraddressDAO(MyadressActivity.this);
+
         if(useaddressDAO.find(u_id)!=null) {
             if (useaddressDAO.find(u_id).getA_name() != null) {
                 nickname = useaddressDAO.find(u_id).getA_name();

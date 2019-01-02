@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.*;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -83,6 +84,7 @@ public class GoodsAdapter extends BaseAdapter implements StickyListHeadersAdapte
             private TextView name,price,tvAdd,tvMinus,tvCount;
             private GoodsItem item;
             private TextView ratingBar;
+            private ImageView img;
 
             public ItemViewHolder(View itemView) {
                 name = itemView.findViewById(R.id.tvName);
@@ -91,6 +93,7 @@ public class GoodsAdapter extends BaseAdapter implements StickyListHeadersAdapte
                 tvMinus = itemView.findViewById(R.id.tvMinus);
                 tvAdd = itemView.findViewById(R.id.tvAdd);
                 ratingBar = itemView.findViewById(R.id.ratingBar);
+                img=itemView.findViewById(R.id.img);
                 tvMinus.setOnClickListener(this);
                 tvAdd.setOnClickListener(this);
             }
@@ -98,11 +101,13 @@ public class GoodsAdapter extends BaseAdapter implements StickyListHeadersAdapte
             public void bindData(GoodsItem item){
                 this.item = item;
                 name.setText(item.name);
-                ratingBar.setText(item.rating);
-                //ratingBar.setRating(item.rating);
+                ratingBar.setText("月售:"+item.rating);
+                int resID=ShoppingCartActivity.mshoppingCartActivity.getResources().getIdentifier(item.f_picture,"mipmap",ShoppingCartActivity.mshoppingCartActivity.getPackageName());
+                img.setImageResource(resID);
                 item.count = mContext.getSelectedItemCountById(item.id);
                 tvCount.setText(String.valueOf(item.count));
                 price.setText(nf.format(item.price));
+
                 if(item.count<1){
                     tvCount.setVisibility(View.GONE);
                     tvMinus.setVisibility(View.GONE);

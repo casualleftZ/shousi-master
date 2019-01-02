@@ -26,8 +26,7 @@ public class UserAdapter extends ArrayAdapter{
         View view= LayoutInflater.from (getContext ()).inflate(resourceId,null);//实例化一个对象
         TextView xinxiName= view.findViewById (R.id.user_thing);//为文字视图设置图片资源
         TextView information= view.findViewById (R.id.user_information); //为文字视图设置图片资源
-        xinxiName.setText (user.getXinxi());//为文本视图设置文本内容
-        information.setText (user.getInformation ());
+
         return view;
     }
 }

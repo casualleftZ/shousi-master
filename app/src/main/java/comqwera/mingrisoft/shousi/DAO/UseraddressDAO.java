@@ -37,12 +37,13 @@ public class UseraddressDAO {
     public void update(Useraddress useraddress) {
         db = helper.getWritableDatabase ();//初始化SQLiteDatabase对象
         //执行修改购物车单信息操作
-        db.execSQL ("update restaurant set a_id=?,u_id=?,a_name=?,a_phone=?,a_weizhi=?,a_menhao=? where u_id=?",
+        db.execSQL ("update  useraddress set a_id=?,a_name=?,a_phone=?,a_weizhi=?,a_menhao=? where u_id=?",
 
                 new Object[]
                         {
-                             useraddress.getA_id(),useraddress.getU_id(),useraddress.getA_name(),
-                             useraddress.getA_phone(),useraddress.getA_weizhi(),useraddress.getA_menhao()
+                             useraddress.getA_id(),useraddress.getA_name(),
+                             useraddress.getA_phone(),useraddress.getA_weizhi(),useraddress.getA_menhao(),
+                                useraddress.getU_id(),
                         });
     }
 

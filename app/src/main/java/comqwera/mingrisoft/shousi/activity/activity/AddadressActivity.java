@@ -46,8 +46,8 @@ public class AddadressActivity extends Activity {
                 Login1DAO login1DAO=new Login1DAO(AddadressActivity.this);
                 u_id=login1DAO.find(1).getU_id();
                     if (useraddressDAO.find(u_id) == null) {
-                        Useraddress useaddress = new Useraddress(useraddressDAO.getMaxId()+1, u_id, shouhuoren1, yuliushouji1, yuliudizhi1, yuliumenhao1);
-                        useraddressDAO.add(useaddress);
+                        Useraddress useraddress = new Useraddress(useraddressDAO.getMaxId()+1, u_id, shouhuoren1, yuliushouji1, yuliudizhi1, yuliumenhao1);
+                        useraddressDAO.add(useraddress);
                         Toast.makeText (AddadressActivity.this, "添加成功", Toast.LENGTH_SHORT).show ();
                     }
                     else {
