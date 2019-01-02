@@ -6,16 +6,27 @@
 
     <TextView
             android:id="@+id/bus_tv_seach"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/serach"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
             android:drawableLeft="@mipmap/sousuo"
             android:hint="搜索用户信息"
             android:padding="5dp"
-            android:textSize="13sp"
-            android:drawablePadding="10dp"/>
+    />
+
+    <!--<TextView-->
+            <!--android:id="@+id/bus_tv_seach"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/serach"-->
+            <!--android:drawableLeft="@mipmap/sousuo"-->
+            <!--android:hint="搜索用户信息"-->
+            <!--android:padding="5dp"-->
+            <!--android:textSize="13sp"-->
+            <!--android:drawablePadding="10dp"/>-->
     <ListView android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_marginTop="10dp"

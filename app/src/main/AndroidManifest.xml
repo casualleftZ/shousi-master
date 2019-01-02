@@ -55,6 +55,8 @@
         </activity>
         <activity android:name=".AddadressActivity">
         </activity>
+        <activity android:name=".CallusActivity">
+        </activity>
     </application>
 
 </manifest>

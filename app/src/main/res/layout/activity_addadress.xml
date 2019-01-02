@@ -1,10 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context="comqwera.mingrisoft.shousi.activity.activity.AddadressActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f0f7f9"
+            android:padding="10dp">
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="添加地址"
+                android:textColor="#564c4c"
+                android:textSize="18dp" />
+    </LinearLayout>
+
+    <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+    >
+    <!--第一行-->
+    <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+    >
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="联系人："
+                android:textSize="22dp"
+                android:textColor="#000000"
+                android:layout_marginLeft="20dp"/>
+        <EditText
+                android:layout_width="200dp"
+                android:id="@+id/zhucenicheng"
+                android:layout_height="wrap_content"
+                android:hint="请输入收货人"
+                android:textSize="20dp"/>
+    </TableRow>
+    <!--第二行-->
+    <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="164dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="电话："
+                android:textSize="22dp"
+                android:textColor="#000000"
+                android:layout_marginLeft="20dp"/>
+
+        <EditText
+                android:layout_width="200dp"
+                android:id="@+id/zhuceshouji"
+                android:layout_height="wrap_content"
+                android:hint="请输入手机号码"
+                android:textSize="20dp"/>
+    </TableRow>
+    <!--第三行-->
+    <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22dp"
+                android:textColor="#000000"
+                android:text="地址："/>
+        <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:id="@+id/zhucemima"
+                android:hint="添加地址"
+                android:textSize="20dp"/>
+    </TableRow>
+    <!--第三行-->
+    <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22dp"
+                android:textColor="#000000"
+                android:text="门牌号："/>
+        <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:id="@+id/querenzhucemima"
+                android:hint="例：6栋203室"
+                android:textSize="20dp"/>
+    </TableRow>
+    </TableLayout>
+
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/add_adress"
+            android:background="@drawable/loginbutton"
+            android:text="保存"
+            android:layout_gravity="center"/>
+
+
+</LinearLayout>
