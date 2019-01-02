@@ -45,7 +45,6 @@ public class FindActivity extends Activity {
             if(!TextUtils.isEmpty(content)) {
                 Food food[] = foodDAO.find3(content);
                 Toast.makeText(FindActivity.this, food[0].getF_name(), Toast.LENGTH_SHORT).show();
-
                 for (int i = 0; i < food.length; i++) {
                     picture = food[i].getF_url();
                     int resID = getResources().getIdentifier(picture, "mipmap", getPackageName());
