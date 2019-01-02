@@ -64,8 +64,7 @@ public Myuser find(String phone)
         db=helper.getWritableDatabase ();//初始化SQLiteDatabase对象
         Cursor cursor=db.rawQuery ("select u_id,u_loginid,u_nickname,u_password,u_phone,"+
                         " u_sex,u_vip,u_headportrait,u_address,u_phone2 from Myuser where u_phone=?",
-                new String[]
-                        {String.valueOf (phone)});
+                null);
 
         if (cursor.moveToNext ())
         {

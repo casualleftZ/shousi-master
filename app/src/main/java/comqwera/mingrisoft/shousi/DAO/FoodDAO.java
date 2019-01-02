@@ -98,6 +98,32 @@ public class FoodDAO {
         }
         return null;
     }
+    public Food[] find3(String name)
+    {
+        db=helper.getWritableDatabase ();     //初始化SQLiteDatabase对象
+           Cursor cursor=db.rawQuery ("select * from food where f_name like ?",
+                new String[]{
+                        "%"+name+"%"      //更具食物名称,或者编号,查找食物信息，并存储
+                });
+        Food food[]=new Food[cursor.getCount()];
+        int i=0;
+        while (cursor.moveToNext ())
+
+        {
+            //将遍历到的收入信息存储到food类中
+            food[i]=new Food(cursor.getInt (cursor.getColumnIndex ("f_id")),
+                    cursor.getInt(cursor.getColumnIndex("f_type_id")),
+                    cursor.getString(cursor.getColumnIndex("f_type")),
+                    cursor.getString (cursor.getColumnIndex ("f_name")),
+                    cursor.getString (cursor.getColumnIndex ("f_url")),
+                    cursor.getFloat (cursor.getColumnIndex ("f_price")),
+                    cursor.getFloat (cursor.getColumnIndex ("f_dprice")),
+                    cursor.getInt (cursor.getColumnIndex ("f_sellcount")),
+                    cursor.getString (cursor.getColumnIndex ("f_instruction")));
+            i++;
+        }
+        return food;
+    }
     /*
      *高级查找法
      *
