@@ -17,6 +17,7 @@ public class DBOPenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL ("create table myuser(u_id int primary key,u_loginid int,u_nickname varchar(30),u_password varchar(31),u_phone varchar(11)," +
                 "u_sex bit,u_headportrait varchar(100),u_vip bit,u_address varchar(100),u_phone2 varchar(11))");//创建用户信息表
+        db.execSQL("create table useraddress(a_id int primary key,u_id int,a_name varchar(16),a_phone varchar(11),a_weizhi varchar(100),a_menhao varchar(30))");
         db.execSQL ("create table restaurant(r_id int primary key,r_password varchar(20),r_name varchar(12),r_opentime date,r_address varchar(30),r_phone varchar(11)," +
                 "r_discription varchar(100))");//创建商家信息表
         db.execSQL ("create table food(f_id int primary key,f_type_id int,f_type varchar(16),f_name varchar(12),f_url varchar(100),f_price float,f_dprice float,f_sellcount int," +

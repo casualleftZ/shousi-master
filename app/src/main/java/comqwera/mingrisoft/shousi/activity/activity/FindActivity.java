@@ -37,6 +37,7 @@ public class FindActivity extends Activity {
             }
         });
         }
+
         private String picture;
         public void initFoods(){
             FoodDAO foodDAO=new FoodDAO(FindActivity.this);

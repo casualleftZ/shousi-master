@@ -2,6 +2,7 @@
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -41,7 +42,7 @@
                 android:layout_marginLeft="20dp"/>
         <EditText
                 android:layout_width="200dp"
-                android:id="@+id/zhucenicheng"
+                android:id="@+id/shouhuoren"
                 android:layout_height="wrap_content"
                 android:hint="请输入收货人"
                 android:textSize="20dp"/>
@@ -61,7 +62,7 @@
 
         <EditText
                 android:layout_width="200dp"
-                android:id="@+id/zhuceshouji"
+                android:id="@+id/yuliushouji"
                 android:layout_height="wrap_content"
                 android:hint="请输入手机号码"
                 android:textSize="20dp"/>
@@ -80,11 +81,28 @@
         <EditText
                 android:layout_height="wrap_content"
                 android:layout_width="200dp"
-                android:id="@+id/zhucemima"
+                android:id="@+id/yuliudizhi"
                 android:hint="添加地址"
                 android:textSize="20dp"/>
     </TableRow>
     <!--第三行-->
+    <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22dp"
+                android:textColor="#000000"
+                android:text="门牌号："/>
+        <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:id="@+id/yuliumenhao"
+                android:hint="例：6栋203室"
+                android:textSize="20dp"/>
+    </TableRow>
     </TableLayout>
 
     <Button

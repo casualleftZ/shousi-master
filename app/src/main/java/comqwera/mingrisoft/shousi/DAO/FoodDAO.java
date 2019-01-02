@@ -161,8 +161,6 @@ public class FoodDAO {
         Cursor cursor=db.rawQuery (sql, new String[]{
                 String.valueOf (id),
         });
-
-
         Food food[]=new Food[cursor.getCount()];
         int i=0;
         while (cursor.moveToNext()){
@@ -179,6 +177,7 @@ public class FoodDAO {
         }
         return food;
     }
+
     public List<Food>getScrollData(String property, int id)
     {
         List<Food>food=new ArrayList<Food> (); //创建集合对象
