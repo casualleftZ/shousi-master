@@ -29,7 +29,7 @@ public class OrderActivity extends AppCompatActivity {
         int minute = calendar.get(Calendar.MINUTE+30);//分钟
 
 
-        tv_time.setText(""+hour+":"+minute+":");
+        tv_time.setText(""+hour+":"+minute);
         tv_surepay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
