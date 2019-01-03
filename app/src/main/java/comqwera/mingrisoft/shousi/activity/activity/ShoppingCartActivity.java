@@ -1,6 +1,7 @@
 package comqwera.mingrisoft.shousi.activity.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -195,6 +196,8 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
                 break;
             case R.id.tvSubmit:
                 Toast.makeText(ShoppingCartActivity.this, "结算", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(ShoppingCartActivity.this,OrderActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;
