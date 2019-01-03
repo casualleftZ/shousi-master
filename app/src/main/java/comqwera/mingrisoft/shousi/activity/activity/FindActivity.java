@@ -1,6 +1,7 @@
 package comqwera.mingrisoft.shousi.activity.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -36,7 +37,7 @@ public class FindActivity extends Activity {
                 tv_seach2=(EditText) findViewById(R.id.tv_seach2);
                 content=tv_seach2.getText().toString();
                 if(!TextUtils.isEmpty(content)) {
-                    List<Thing>thingsList=new ArrayList<>();
+                    final List<Thing>thingsList=new ArrayList<>();
                     Food food[] = foodDAO.find3(content);
                     Toast.makeText(FindActivity.this, food[0].getF_name(), Toast.LENGTH_SHORT).show();
                     for (int i = 0; i < food.length; i++) {
@@ -48,6 +49,18 @@ public class FindActivity extends Activity {
                     FindAdapter adapter=new FindAdapter(FindActivity.this,R.layout.activity_find_item,thingsList);
                     ListView listView=(ListView)findViewById(R.id.list_view3);
                     listView.setAdapter(adapter);
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            Thing thing=thingsList.get(position);
+                            Intent intent = new Intent(FindActivity.this, GoodsActivity.class);
+                            Bundle bundle=new Bundle();
+                            bundle.putString ("cai", thing.getF_name());
+                            intent.putExtras (bundle);
+                            startActivity(intent);
+
+                        }
+                    });
                 }
                 else {
                     Toast.makeText(FindActivity.this, "查询不到", Toast.LENGTH_SHORT).show();

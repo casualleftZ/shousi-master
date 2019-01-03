@@ -44,7 +44,8 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="左先生"
+            android:id="@+id/dingdan_name"
+            android:text="leftZ"
             android:textColor="#000000"
             android:textSize="15sp"
             android:layout_marginLeft="20dp"/>
@@ -52,6 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="江西师范"
+            android:id="@+id/dingdan_address"
             android:textColor="#000000"
             android:textSize="15sp"
             android:layout_marginLeft="30dp"/>
@@ -109,10 +111,10 @@
     </LinearLayout>
 
     <ListView
-            android:id="@+id/list_view2"
+            android:id="@+id/list_view4"
             app:layout_constraintTop_toBottomOf="@id/linearLayout3"
             android:layout_width="match_parent"
-            android:layout_height="0dp"></ListView>
+            android:layout_height="wrap_content"></ListView>
 
 
     <LinearLayout

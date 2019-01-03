@@ -204,6 +204,10 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
                 ShopthingDAO shopthingDAO=new ShopthingDAO(ShoppingCartActivity.this);
                 for(int i=shopthingDAO.getMaxId();i>0;i--){
                     shopthingDAO.detete2(i);}
+                Shopthing1DAO shopthing1DAO=new Shopthing1DAO(ShoppingCartActivity.this);
+                for(int i=shopthing1DAO.getMaxId();i>0;i--){
+                    shopthing1DAO.detele2(i);
+                }
                 break;
             case R.id.tvSubmit:
                 Toast.makeText(ShoppingCartActivity.this, "结算", Toast.LENGTH_SHORT).show();
@@ -230,11 +234,19 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
             item.count=1;
             selectedList.append(item.id,item);
             //购物车数据添加到数据库
+
             Shopthing1DAO shopthing1DAO=new Shopthing1DAO(ShoppingCartActivity.this);
-            Shopthing1 shopthing1=new Shopthing1(shopthing1DAO.getMaxId()+1,
+            if(shopthing1DAO.find(item.name)==null){
+             Shopthing1 shopthing1=new Shopthing1(shopthing1DAO.getMaxId()+1,
                     item.name,1,item.price,
                     item.price );
-            shopthing1DAO.add(shopthing1);//东西数目加一
+            shopthing1DAO.add(shopthing1);}//东西数目加一
+            else{
+                Shopthing1 shopthing1=new Shopthing1(shopthing1DAO.find(item.name).getT_id(),
+                        item.name,shopthing1DAO.find(item.name).getT_num()+1,shopthing1DAO.find(item.name).getT_money(),
+                        shopthing1DAO.find(item.name).getT_money_num()+item.price );
+                shopthing1DAO.update(shopthing1);//东西数目加一
+            }
 
         }else{
             temp.count++;
