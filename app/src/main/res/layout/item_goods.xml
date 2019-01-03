@@ -7,7 +7,7 @@
     <ImageView
                android:id="@+id/img"
                android:layout_margin="5dp"
-               android:src="@mipmap/zhujiemian4"
+
                android:layout_width="50dp"
                android:layout_height="50dp" />
     <LinearLayout
@@ -17,10 +17,10 @@
                   android:paddingRight="5dp"
                   android:layout_height="wrap_content">
         <TextView
-                  android:text="三文鱼寿司"
+
                   android:textColor="#000"
                   android:textSize="16sp"
-                  android:id="@+id/tvName"
+                  android:id="@+id/tvName1"
                   android:layout_width="300dp"
                   android:layout_height="wrap_content"
                   android:layout_marginLeft="6dp"/>
@@ -28,14 +28,14 @@
                 android:id="@+id/ratingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="月售88"
+
                 android:layout_marginLeft="7dp"/>
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <TextView
                       android:id="@+id/tvPrice"
-                      android:text="￥ 100"
+
                       android:textSize="16sp"
                       android:textColor="#FF3300"
                       android:layout_width="wrap_content"

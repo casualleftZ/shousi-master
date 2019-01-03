@@ -27,6 +27,7 @@ public class OrderActivity extends AppCompatActivity {
         int hour = calendar.get(Calendar.HOUR_OF_DAY);//小时
 
         int minute = calendar.get(Calendar.MINUTE);//分钟
+        calendar.add(calendar.MINUTE,30);
 
 
         tv_time.setText(""+hour+":"+minute);
