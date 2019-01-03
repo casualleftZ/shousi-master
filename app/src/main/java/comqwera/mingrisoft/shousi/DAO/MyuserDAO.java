@@ -162,6 +162,7 @@ public void detele(Integer... ids)
         db.execSQL ("delete from myuser where u_id in ("+sb+")", ids);
     }
 }
+
 /**
  * 获取用户信息
  * @param start 起始位置
