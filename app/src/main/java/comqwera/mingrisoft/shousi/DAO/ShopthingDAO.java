@@ -64,6 +64,23 @@ public class ShopthingDAO {
         }
         return null;     //如果没有返回null
     }
+    public Shopthing find2(int i)
+    {
+        db=helper.getWritableDatabase ();//初始化SQLiteDatabase对象
+        Cursor cursor=db.rawQuery ("select t_id,f_name,t_num,t_money,t_money_num from shopthing where t_id=?",
+                new String[]
+                        {String.valueOf (i)});
+        if (cursor.moveToNext ())
+        {
+            //将遍历到的购物车单存储到 Myuser类中
+            return new Shopthing(cursor.getInt (cursor.getColumnIndex ("t_id")),
+                    cursor.getString (cursor.getColumnIndex ("f_name")),
+                    cursor.getInt (cursor.getColumnIndex ("t_num")),
+                    cursor.getFloat (cursor.getColumnIndex ("t_money")),
+                    cursor.getFloat (cursor.getColumnIndex ("t_money_num")));
+        }
+        return null;     //如果没有返回null
+    }
     public Shopthing[] shopthingall(){
         db=helper.getWritableDatabase ();     //初始化SQLiteDatabase
         String sql="select * from shopthing";
