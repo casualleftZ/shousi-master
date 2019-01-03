@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class GoodsItem {
     public int id;
-    public int typeId;
+    public int typeId;  //
     public int rating;
     public String name;
     public String typeName;
@@ -16,13 +16,13 @@ public class GoodsItem {
     public String f_picture;
 
     public GoodsItem(int id, float price, String name, int typeId, String typeName, String f_picture,int rating) {
-        this.id = id;
-        this.price = price;
-        this.name = name;
-        this.typeId = typeId;
-        this.typeName = typeName;
-        this.f_picture=f_picture;
-        this.rating=rating;
+        this.id = id;       //食物编号
+        this.price = price;//种类价格
+        this.name = name;   //食物名称
+        this.typeId = typeId;  //种类编号
+        this.typeName = typeName;//种类名称
+        this.f_picture=f_picture;  //图片
+        this.rating=rating;     //销量
     }
 
     private static ArrayList<GoodsItem> goodsList;

@@ -29,12 +29,16 @@ import com.flipboard.bottomsheet.BottomSheetLayout;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
+import comqwera.mingrisoft.shousi.DAO.FoodDAO;
+import comqwera.mingrisoft.shousi.DAO.ShopthingDAO;
 import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.activity.Adapter.GoodsAdapter;
 import comqwera.mingrisoft.shousi.activity.Adapter.SelectAdapter;
 import comqwera.mingrisoft.shousi.activity.Adapter.TypeAdapter;
 import comqwera.mingrisoft.shousi.activity.View.DividerDecoration;
+import comqwera.mingrisoft.shousi.model.Food;
 import comqwera.mingrisoft.shousi.model.GoodsItem;
+import comqwera.mingrisoft.shousi.model.Shopthing;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 public class ShoppingCartActivity extends Activity implements View.OnClickListener{
@@ -50,10 +54,11 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
     private View bottomSheet;
     private StickyListHeadersListView listView;
 
-
+    private GoodsItem item;
     private ArrayList<GoodsItem> dataList,typeList;
-    private SparseArray<GoodsItem> selectedList;
-    private SparseIntArray groupSelect;
+    private SparseArray<GoodsItem> selectedList= new SparseArray<>();//已选择的商品
+    private SparseIntArray groupSelect;//用于记录每个分组选择的数目
+
 
     private GoodsAdapter myAdapter;
     private SelectAdapter selectAdapter;
@@ -65,6 +70,7 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mshoppingCartActivity=this;
+
         setContentView(R.layout.activity_shopping_cart);
         nf = NumberFormat.getCurrencyInstance();
         nf.setMaximumFractionDigits(2);
@@ -85,12 +91,12 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
 
         imgCart = findViewById(R.id.imgCart);
         anim_mask_layout = (RelativeLayout) findViewById(R.id.containerLayout);
-        bottomSheetLayout = findViewById(R.id.bottomSheetLayout);
+        bottomSheetLayout = findViewById(R.id.bottomSheetLayout);   //底部购物车
 
         listView = findViewById(R.id.itemListView);
 
         rvType.setLayoutManager(new LinearLayoutManager(this));
-        typeAdapter = new TypeAdapter(this,typeList);
+        typeAdapter = new TypeAdapter(this,typeList); //分类设配器
         rvType.setAdapter(typeAdapter);
         rvType.addItemDecoration(new DividerDecoration(this));
 
@@ -193,6 +199,9 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
                 break;
             case R.id.clear:
                 clearCart();
+                ShopthingDAO shopthingDAO=new ShopthingDAO(ShoppingCartActivity.this);
+                for(int i=shopthingDAO.getMaxId();i>0;i--){
+                    shopthingDAO.detete2(i);}
                 break;
             case R.id.tvSubmit:
                 Toast.makeText(ShoppingCartActivity.this, "结算", Toast.LENGTH_SHORT).show();
@@ -209,6 +218,7 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
         int groupCount = groupSelect.get(item.typeId);
         if(groupCount==0){
             groupSelect.append(item.typeId,1);
+
         }else{
             groupSelect.append(item.typeId,++groupCount);
         }
@@ -217,8 +227,12 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
         if(temp==null){
             item.count=1;
             selectedList.append(item.id,item);
+            //购物车数据添加到数据库
+
         }else{
             temp.count++;
+            //东西数目加一
+
         }
         update(refreshGoodList);
     }
@@ -240,6 +254,8 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
             }else{
                 item.count--;
             }
+            //物品减掉1
+
         }
         update(refreshGoodList);
     }
@@ -287,6 +303,7 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
     }
     //清空购物车
     public void clearCart(){
+
         selectedList.clear();
         groupSelect.clear();
         update(true);
@@ -294,7 +311,9 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
     }
     //根据商品id获取当前商品的采购数量
     public int getSelectedItemCountById(int id){
+
         GoodsItem temp = selectedList.get(id);
+
         if(temp==null){
             return 0;
         }
@@ -328,6 +347,14 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
         }
         return position;
     }
+    private String name;
+    private int rating;
+    private float price;
+    private String typeName;
+    private int typeId;
+    private int  id;
+    private int count;
+    private String f_picture;
 
     private View createBottomSheetView(){
         View view = LayoutInflater.from(this).inflate(R.layout.layout_bottom_sheet,(ViewGroup) getWindow().getDecorView(),false);
@@ -335,8 +362,29 @@ public class ShoppingCartActivity extends Activity implements View.OnClickListen
         rvSelected.setLayoutManager(new LinearLayoutManager(this));
         TextView clear = view.findViewById(R.id.clear);
         clear.setOnClickListener(this);
+            ShopthingDAO shopthingDAO=new ShopthingDAO(ShoppingCartActivity.this);
+            Shopthing shopthing[]=shopthingDAO.shopthingall();
+            FoodDAO foodDAO=new FoodDAO(ShoppingCartActivity.this);
+            for(int i=0;i<shopthing.length;i++){
+
+
+
+                name=shopthing[i].getF_name();
+                rating=shopthing[i].getT_num();
+                price=shopthing[i].getT_money();
+                typeName=foodDAO.find2(shopthing[i].getF_name()).getF_type();
+                typeId=foodDAO.find2(shopthing[i].getF_name()).getF_type_id();
+                id=foodDAO.find2(shopthing[i].getF_name()).getF_id();
+                count=shopthing[i].getT_num();
+                f_picture=foodDAO.find2(shopthing[i].getF_name()).getF_url();
+//                int resID=ShoppingCartActivity.mshoppingCartActivity.getResources().getIdentifier(f_picture,
+//                        "mipmap",ShoppingCartActivity.mshoppingCartActivity.getPackageName());
+                GoodsItem item2=new GoodsItem(id,price,name,typeId,typeName,f_picture,rating);
+                selectedList.put(i,item2);
+        }
         selectAdapter = new SelectAdapter(this,selectedList);
         rvSelected.setAdapter(selectAdapter);
+
         return view;
     }
 

@@ -9,9 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import comqwera.mingrisoft.shousi.DAO.ShopthingDAO;
 import comqwera.mingrisoft.shousi.activity.activity.R;
 import comqwera.mingrisoft.shousi.activity.activity.ShoppingCartActivity;
 import comqwera.mingrisoft.shousi.model.GoodsItem;
+import comqwera.mingrisoft.shousi.model.Shopthing;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 
 import java.text.NumberFormat;
@@ -75,6 +77,15 @@ public class GoodsAdapter extends BaseAdapter implements StickyListHeadersAdapte
         }else{
             holder = (ItemViewHolder) convertView.getTag();
         }
+//        ShopthingDAO shopthingDAO=new ShopthingDAO(ShoppingCartActivity.mshoppingCartActivity);
+//        Shopthing shopthing[]=shopthingDAO.shopthingall("f_name");
+//        for(int i=0;i<shopthing.length;i++){
+//        GoodsItem item2=dataList.get(position);
+//            item2.count = shopthing[i].getT_num();
+//            holder.tvCount.setText(String.valueOf(item2.count));
+//            holder.price.setText(nf.format(item2.price));
+//            holder(item2);
+//        }
         GoodsItem item = dataList.get(position);
         holder.bindData(item);
         return convertView;
@@ -118,15 +129,15 @@ public class GoodsAdapter extends BaseAdapter implements StickyListHeadersAdapte
             }
 
         @Override
-        public void onClick(View v) {
+        public void onClick(View v) { //加减商品
             ShoppingCartActivity activity = mContext;
             switch (v.getId()){
                 case R.id.tvAdd: {
                     int count = activity.getSelectedItemCountById(item.id);
                     if (count < 1) {
                         tvMinus.setAnimation(getShowAnimation());
-                        tvMinus.setVisibility(View.VISIBLE);
-                        tvCount.setVisibility(View.VISIBLE);
+                        tvMinus.setVisibility(View.VISIBLE);   //显示减法按钮
+                        tvCount.setVisibility(View.VISIBLE);   //显示加法按钮
                     }
                     activity.add(item, false);
                     count++;

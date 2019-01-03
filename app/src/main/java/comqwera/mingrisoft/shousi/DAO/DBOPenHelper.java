@@ -23,6 +23,7 @@ public class DBOPenHelper extends SQLiteOpenHelper {
         db.execSQL ("create table food(f_id int primary key,f_type_id int,f_type varchar(16),f_name varchar(12),f_url varchar(100),f_price float,f_dprice float,f_sellcount int," +
                 "f_instruction varchar(100))");//菜品表
         db.execSQL("create table shopthing(t_id int primary key,f_name varchar(20),t_num int,t_money float,t_money_num float )");//购物车表
+        db.execSQL("create table shopthing2(t_id int primary key,f_name varchar(20),t_num int,t_money float,t_money_num float )");//购物车表
         db.execSQL ("create table shopping_cart(s_id integer primary key,f_id int,u_id int,s_num int,s_time date)");//购物车表
         db.execSQL ("create table order_cart(o_id int primary key,u_id int,o_orderdate date,o_memo varchar(100),o_statue varchar(12),o_phone varchar(11),o_totle float," +
                 "o_dis float,o_paymethod varchar(20),o_paytime date,o_paystatue bit,o_adress varchar(100))");//订单表
