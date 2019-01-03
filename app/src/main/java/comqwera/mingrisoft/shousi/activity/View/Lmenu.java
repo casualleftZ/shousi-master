@@ -43,7 +43,7 @@ public class Lmenu extends RelativeLayout implements View.OnClickListener {
         snack= findViewById(R.id.snack);
         drink= findViewById(R.id.drink);
 
-        //将四个Imageview放在集合里，方便管理
+        //将七个Imageview放在集合里，方便管理
         oViews=new ArrayList<ImageView>();
         oViews.add(center);
         oViews.add(hot);
