@@ -5,14 +5,16 @@ public class Dingdan {
     private int u_id;
     private String d_thing;
     private String d_address;
+    private float f_money;
     public Dingdan(){
         super();
     }
-    public Dingdan(int d_id,int u_id,String d_thing,String d_address){
+    public Dingdan(int d_id,int u_id,String d_thing,String d_address,float f_money){
        this.d_id=d_id;
        this.u_id=u_id;
        this.d_thing=d_thing;
        this.d_address=d_address;
+       this.f_money=f_money;
     }
 
     public int getD_id() {
@@ -31,6 +33,10 @@ public class Dingdan {
         return d_address;
     }
 
+    public float getF_money() {
+        return f_money;
+    }
+
     public void setD_id(int d_id) {
         this.d_id = d_id;
     }
@@ -45,5 +51,8 @@ public class Dingdan {
 
     public void setU_id(int u_id) {
         this.u_id = u_id;
+    }
+    public void setF_money(float f_money) {
+        this.f_money = f_money;
     }
 }

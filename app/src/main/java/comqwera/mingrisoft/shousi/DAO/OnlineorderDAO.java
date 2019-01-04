@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import comqwera.mingrisoft.shousi.model.Food;
 import comqwera.mingrisoft.shousi.model.Onlineorder;
 
 public class OnlineorderDAO {
@@ -52,13 +53,35 @@ public class OnlineorderDAO {
     /**
      * 查找用户信息
      *
-     * @param id
+     * @param
      * @return
      */
+    public Onlineorder[] find2()
+    {
+        db=helper.getWritableDatabase ();     //初始化SQLiteDatabase对象
+        Cursor cursor=db.rawQuery ("select * from onlineorder",
+                null);
+        Onlineorder onlineorder[]=new  Onlineorder[cursor.getCount()];
+        int i=0;
+        while (cursor.moveToNext ())
+
+        {
+            //将遍历到的收入信息存储到food类中
+            onlineorder[i]=new  Onlineorder (cursor.getInt (cursor.getColumnIndex ("or_id")),
+                    cursor.getInt (cursor.getColumnIndex ("u_id")),
+                    cursor.getString (cursor.getColumnIndex ("or_phone")),
+                    cursor.getInt (cursor.getColumnIndex ("d_id")),
+                    cursor.getString (cursor.getColumnIndex ("or_sum")),
+                    cursor.getString (cursor.getColumnIndex ("or_time")),
+                    cursor.getString (cursor.getColumnIndex ("or_memo")));
+            i++;
+        }
+        return onlineorder;
+    }
     public  Onlineorder find(int id)
     {
         db=helper.getWritableDatabase ();//初始化SQLiteDatabase对象
-        Cursor cursor=db.rawQuery ("select * from onlineorder where re_id=? ",
+        Cursor cursor=db.rawQuery ("select * from onlineorder where or_id=? ",
                 new String[]
                         {String.valueOf (id)});
         if (cursor.moveToNext ())

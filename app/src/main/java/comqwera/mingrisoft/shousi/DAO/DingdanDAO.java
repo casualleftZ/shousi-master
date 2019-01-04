@@ -18,28 +18,28 @@ public class DingdanDAO {
     {
         db=helper.getWritableDatabase ();         //初始化SQLiteDatabase
         //执行添加食物信息操作
-        db.execSQL ("insert into dingdan(d_id,u_id,d_thing,d_address) values (?,?,?,?)",
+        db.execSQL ("insert into dingdan(d_id,u_id,d_thing,d_address,d_money) values (?,?,?,?,?)",
                 new Object[]
                         {
                                 dingdan.getD_id(),dingdan.getU_id(),dingdan.getD_thing(),
-                                dingdan.getD_address()
+                                dingdan.getD_address(),dingdan.getF_money()
                         });
     }
     public void update(Dingdan dingdan)
     {
         db=helper.getWritableDatabase ();            //初始化SQLiteDatabase对象
         //执行修改评论信息操作
-        db.execSQL ("update dingdan set u_id=?,d_thing=?,d_address=? where d_id=?",
+        db.execSQL ("update dingdan set u_id=?,d_thing=?,d_address=?,d_money=? where d_id=?",
                 new Object[]
                         {
                                 dingdan.getD_id(),dingdan.getU_id(),dingdan.getD_thing(),
-                                dingdan.getD_address()
+                                dingdan.getD_address(),dingdan.getF_money()
                         });
     }
     public Dingdan find(int id)
     {
         db=helper.getWritableDatabase ();     //初始化SQLiteDatabase对象
-        Cursor cursor=db.rawQuery ("select d_id,u_id,d_thing,d_address from dingdan where d_id ",
+        Cursor cursor=db.rawQuery ("select d_id,u_id,d_thing,d_address,d_money from dingdan where d_id ",
                 new String[]{
                         String.valueOf (id)        //更具食物名称,或者编号,查找食物信息，并存储
                 });
@@ -49,11 +49,72 @@ public class DingdanDAO {
             return new Dingdan (cursor.getInt (cursor.getColumnIndex ("d_id")),
                     cursor.getInt (cursor.getColumnIndex ("u_id")),
                     cursor.getString (cursor.getColumnIndex ("d_thing")),
-                    cursor.getString (cursor.getColumnIndex ("d_address")));
+                    cursor.getString (cursor.getColumnIndex ("d_address")),
+                    cursor.getInt(cursor.getColumnIndex("d_money")));
         }
         return null;
     }
+    public Dingdan find2(int id)
+    {
+        db=helper.getWritableDatabase ();     //初始化SQLiteDatabase对象
+        Cursor cursor=db.rawQuery ("select d_id,u_id,d_thing,d_address,d_money from dingdan where d_id ",
+                new String[]{
+                        String.valueOf (id)        //更具食物名称,或者编号,查找食物信息，并存储
+                });
+        if (cursor.moveToNext ())
+        {
+            //将遍历到的评论信息存储到evaluate类中
+            return new Dingdan (cursor.getInt (cursor.getColumnIndex ("d_id")),
+                    cursor.getInt (cursor.getColumnIndex ("u_id")),
+                    cursor.getString (cursor.getColumnIndex ("d_thing")),
+                    cursor.getString (cursor.getColumnIndex ("d_address")),
+                    cursor.getInt(cursor.getColumnIndex("d_money")));
+        }
+        return null;
+    }
+    public Dingdan[] find3(int id)
+    {
+        db=helper.getWritableDatabase ();     //初始化SQLiteDatabase对象
+        Cursor cursor=db.rawQuery ("select * from dingdan where u_id=?",
+                new String[]{
+                        String.valueOf (id)     //更具食物名称,或者编号,查找食物信息，并存储
+                });
+        Dingdan dingdan[]=new Dingdan[cursor.getCount()];
+        int i=0;
+        while (cursor.moveToNext ())
 
+        {
+            //将遍历到的收入信息存储到food类中
+            dingdan[i]=new Dingdan(cursor.getInt (cursor.getColumnIndex ("d_id")),
+                    cursor.getInt (cursor.getColumnIndex ("u_id")),
+                    cursor.getString (cursor.getColumnIndex ("d_thing")),
+                    cursor.getString (cursor.getColumnIndex ("d_address")),
+                    cursor.getInt(cursor.getColumnIndex("d_money")));
+            i++;
+        }
+        return dingdan;
+    }
+    public Dingdan[] find4()
+    {
+        db=helper.getWritableDatabase ();     //初始化SQLiteDatabase对象
+        Cursor cursor=db.rawQuery ("select * from dingdan",null
+                     //更具食物名称,或者编号,查找食物信息，并存储
+                );
+        Dingdan dingdan[]=new Dingdan[cursor.getCount()];
+        int i=0;
+        while (cursor.moveToNext ())
+
+        {
+            //将遍历到的收入信息存储到food类中
+            dingdan[i]=new Dingdan(cursor.getInt (cursor.getColumnIndex ("d_id")),
+                    cursor.getInt (cursor.getColumnIndex ("u_id")),
+                    cursor.getString (cursor.getColumnIndex ("d_thing")),
+                    cursor.getString (cursor.getColumnIndex ("d_address")),
+                    cursor.getInt(cursor.getColumnIndex("d_money")));
+            i++;
+        }
+        return dingdan;
+    }
     public int getMaxId() {
         db = helper.getWritableDatabase ();//初始化SQLiteDatabase
         Cursor cursor = db.rawQuery ("select max(d_id) from dingdan", null);//获取收入信息表中最大的编号
@@ -63,6 +124,7 @@ public class DingdanDAO {
         }
         return 0;
     }
+
     public void detele(Integer... ids)
     {                                                   //判断是否纯在要删除的id
         if(ids.length>0)

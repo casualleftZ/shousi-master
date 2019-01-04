@@ -10,24 +10,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-    <TextView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="左先生"
+            android:text="订单编号"
+            android:id="@+id/dingdanbianhao"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:layout_marginLeft="20dp"/>
+            />
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
-                android:text="总计："
+                android:text="张旭"
+                android:id="@+id/dingdannicheng"
+                android:layout_marginLeft="30dp"
                 android:textColor="#000000"
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+        />
+
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/dingdanzonge"
                 android:text="150.00"
                 android:textColor="#000000"
                 android:textSize="15sp"/>
@@ -36,21 +41,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="20dp">
+            >
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="三文鱼寿司"
+            android:id="@+id/dingdancontext"
             android:textColor="#000000"
             android:textSize="15sp"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:text="2"
-                android:textColor="#000000"
-                android:textSize="15sp"/>
+    </LinearLayout>
+    <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          >
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dingdandizhi"
+            android:text="地址"
+            android:textColor="#000000"
+            android:textSize="15sp"/>
 </LinearLayout>
 
 </LinearLayout>

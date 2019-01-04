@@ -1,5 +1,6 @@
 package comqwera.mingrisoft.shousi.activity.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,8 +24,11 @@ public class OrderActivity extends AppCompatActivity {
     private TextView tv_time;
     private TextView dingdan_name;
     private TextView dingdan_address;
+    private TextView tv_total;
+    private float a=0;
+    private float b=0;
     private int u_id;
-    private String food_thing;
+    private String food_thing=" ";
     private List<Foodthing>foodthingList=new ArrayList<>();
 
     @Override
@@ -33,6 +37,7 @@ public class OrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order);
         tv_surepay=(Button)findViewById(R.id.tv_surepay);
         tv_time=(TextView)findViewById(R.id.tv_time) ;
+        tv_total=(TextView)findViewById(R.id.tv_total);
         ShopthingDAO shopthingDAO=new ShopthingDAO(OrderActivity.this);
         Shopthing1DAO shopthing1DAO=new Shopthing1DAO(OrderActivity.this);
         dingdan_address=(TextView)findViewById(R.id.dingdan_address);
@@ -42,6 +47,8 @@ public class OrderActivity extends AppCompatActivity {
         final MyuserDAO myuserDAO=new MyuserDAO(OrderActivity.this);
 
         UseraddressDAO useraddressDAO=new UseraddressDAO(OrderActivity.this);
+
+
         if(useraddressDAO.find(u_id)==null){
             dingdan_address.setText("我的信息地址没填");
         }
@@ -83,7 +90,7 @@ public class OrderActivity extends AppCompatActivity {
                     for (int j = 1; j <= shopthing1DAO.getMaxId(); j++) {
                         food_thing = food_thing + shopthing1DAO.find2(j).getF_name() + shopthing1DAO.find2(j).getT_num() + "分";
                     }
-                    Dingdan dingdan = new Dingdan(dingdanDAO.getMaxId() + 1, u_id, food_thing, useraddressDAO1.find(u_id).getA_weizhi());
+                    Dingdan dingdan = new Dingdan(dingdanDAO.getMaxId() + 1, u_id, food_thing, useraddressDAO1.find(u_id).getA_weizhi(),a+b);
                     dingdanDAO.add(dingdan);
                     for (int m = shopthingDAO.getMaxId(); m >= 1; m--) {
                         shopthingDAO.detete2(m);
@@ -92,8 +99,14 @@ public class OrderActivity extends AppCompatActivity {
                         shopthing1DAO.detele2(m);
                     }
                     Toast.makeText(OrderActivity.this, "支付完成", Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(OrderActivity.this,MyorderActivity.class);
+                    startActivity(intent);
+                    OrderActivity.this.finish();
                 } else {
                     Toast.makeText(OrderActivity.this, "完善地址", Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(OrderActivity.this,MyadressActivity.class);
+                    startActivity(intent);
+
                 }
             }
             });
@@ -107,6 +120,7 @@ public class OrderActivity extends AppCompatActivity {
             Foodthing thing=new Foodthing(shopthingDAO.find2(i).getF_name(),
                     shopthingDAO.find2(i).getT_num(),shopthingDAO.find2(i).getT_money_num());
             foodthingList.add(thing);
+        a=a+shopthingDAO.find2(i).getT_money_num();
         }
         }
         if((shopthing1DAO.getMaxId()!=0)) {
@@ -114,8 +128,10 @@ public class OrderActivity extends AppCompatActivity {
                 Foodthing thing2 = new Foodthing(shopthing1DAO.find2(j).getF_name(),
                         shopthing1DAO.find2(j).getT_num(), shopthing1DAO.find2(j).getT_money_num());
                 foodthingList.add(thing2);
+                b=b+shopthing1DAO.find2(j).getT_money_num();
             }
-
+            tv_total.setText("¥"+Float.toString(b+a));
         }
+
     }
 }

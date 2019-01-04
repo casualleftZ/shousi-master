@@ -32,7 +32,7 @@ public class DBOPenHelper extends SQLiteOpenHelper {
                 ",re_contect varchar(100))");//推荐说明
         db.execSQL ("create table onlineorder(or_id int primary key,u_id int,or_phone String,d_id int,or_sum string,or_time varchar(20),or_memo varchar(30))");//在线预订表
         db.execSQL ("create table login1(zt_id int primary key,zt int,u_id int,or_id int,zhiwen int)");
-        db.execSQL("create table dingdan(d_id int primary key,u_id int,d_thing varchar(400),d_address varchar(100))");
+        db.execSQL("create table dingdan(d_id int primary key,u_id int,d_thing varchar(400),d_address varchar(100),d_money float)");
     }
 
     @Override

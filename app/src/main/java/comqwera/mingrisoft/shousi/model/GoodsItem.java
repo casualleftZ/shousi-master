@@ -34,7 +34,7 @@ public class GoodsItem {
         GoodsItem item = null;
         FoodDAO foodDAO=new FoodDAO(ShoppingCartActivity.mshoppingCartActivity);
         int k=1;
-        for(int i=1;i<6;i++) {
+        for(int i=1;i<7;i++) {
 
             Food food[]=foodDAO.findall("f_type_id",i);
             if(food.length==0){
